@@ -1,0 +1,17 @@
+#submissions
+  .clearfix
+    .list-info
+      h3.name {{conference.longName}}
+      ul.list-actions.unstyled
+        li.btn-group
+          a.btn.dropdown-toggle(href='#', data-toggle='dropdown')
+            b.caret
+          ul.dropdown-menu.pull-right
+    #new-clip
+      input(placeholder='Add a submission...', type='text')
+  .submissions-container
+    ul#submissions-list.unstyled(ng-repeat='submission in submissions')
+      li.submission
+        .submission-content
+          a(href='#') {{submission.title}}
+          p {{submission.authors}}

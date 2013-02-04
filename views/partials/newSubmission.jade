@@ -1,0 +1,7 @@
+h2 Create a new submission
+label(for='title') Title:
+input(ng-model='form.title', name='title')
+p Body:
+textarea(ng-model='form.abstract', cols='50', rows='15')
+p
+  button(ng-click='submit()') Submit

@@ -1,0 +1,80 @@
+extends layout
+
+block body
+  header.topbar
+    .container
+      h3.brand
+        a(href='/') Publicum
+      div#notifications(ng-controller='MenuNotificationsCtrl')
+        //-a.btn(href='#notifications', role='button', data-toggle='modal')
+        //-div#notifications.modal.hide.fade(role='dialog', aria-hidden='true')
+        a.notifications-link.dropdown-toggle(href='#notifications', role='button', data-toggle='dropdown')
+        div.notifications.dropdown-menu
+          div
+            ul
+              li
+                Notification
+      ul.nav.nav-conferences
+        li.nav-conferences
+          a(href='/conferences/') Conferences
+      form#search-form(action='/search', method='get', ng-controller='MenuSearchCtrl')
+        input#search(type='text', placeholder='Search conferences...', name='q)
+      ul.nav.nav-user(ng-controller='MenuUserCtrl')
+        li
+          a(href='/tools') Tools
+        li
+          a(href='/feedback') Feedback
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown')
+            span.username
+              img.avatar(width=32, height=32, title='petrh') petrh
+            b.caret
+          ul.dropdown-menu
+            li
+              a(href='/settings') Settings
+            li
+              a(href='/logout') Logout
+  #body.container
+    .clearfix
+      .row
+        .span3.columns#sidebar(ng-controller='SidebarConferenceCtrl')
+          h5 LABELS
+          ul#lists.unstyled
+            #global-lists
+              li
+                a(href='/lists/submissions')
+                  i.icon.icon-envelope
+                  | Submissions
+            li
+              a(href='/lists/reviews')
+                i.icon.icon-folder-close
+                | Reviews
+            #user-lists.ui-sortable
+            li(ng-repeat='conference in conferences')
+              a(href='/conferences/{{conference.id}}') {{conference.shortName}}
+            #new-list
+              a.add-list(href='/add-list') New list
+        .span9.columns.content
+          .ng-view
+
+  ul.menu
+    li
+      a(href='/') Publicum
+    li
+      a(href='/newSubmission') Create a new submission
+
+  div
+    | Angular seed app: v
+    span(app-version)
+
+  //- In production use: script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js')
+  script(src='lib/angular/angular.js')
+  script(src='lib/angular/angular-bootstrap.js')
+  script(src='lib/angular/angular-resource.js')
+  script(src='lib/jquery/jquery-1.9.0.js')
+  script(src='lib/bootstrap/bootstrap.js')
+  script(src='js/app.js')
+  script(src='js/services/services.js')
+  script(src='js/controllers/controllers.js')
+  script(src='js/filters/filters.js')
+  script(src='js/directives/directives.js')

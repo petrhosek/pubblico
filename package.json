@@ -1,0 +1,27 @@
+{
+  "name": "pubblico",
+  "version": "0.0.1",
+  "author": "Petr Hosek",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha test/backend"
+  },
+  "dependencies": {
+    "express": "3.0.x",
+    "jade": ">= 0.0.1",
+    "stylus": ">= 0.0.1",
+    "mongoose": "3.5.x"
+  },
+  "devDependencies": {
+    "grunt": "0.3.x",
+    "testacular": "0.4.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/petrh/pubblico.git"
+  },
+  "engines": {
+    "node": "0.8.x"
+  }
+}
