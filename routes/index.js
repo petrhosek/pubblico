@@ -1,32 +1,13 @@
-var async = require ('async')
-  , glob = require('glob');
-
 /*
  * GET /
  */
 exports.index = function (req, res) {
-  // strip "public" from the front of files
-  var preheaderLength = 'public'.length;
-
-  // grab all the JS files
-  var jsFiles = async.concat([
-    'public/js/lib/**/*.js',
-    'public/js/*.js',
-    'public/js/controllers/*.js',
-    'public/js/directives/*.js',
-    'public/js/services/*.js'
-  ], function (pattern, callback) {
-    glob(pattern, function (err, matches) {
-      callback(err, matches.map(function (match) {
-        match.substr(preheaderLength);
-      }));
-    });
-  }, function (err, files) {
-    res.render('index', {
-      jsFiles: files
-    });
-  });
+  res.render('index');
 };
+
+exports.logout = function (req, res) {
+  res.render('logout');
+}
 
 /*
  * GET /partials/:name
