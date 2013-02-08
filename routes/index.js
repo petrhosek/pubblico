@@ -5,8 +5,8 @@ exports.index = function (req, res) {
   res.render('index');
 };
 
-exports.logout = function (req, res) {
-  res.render('logout');
+exports.home = function (req, res) {
+  res.render('home');
 }
 
 /*

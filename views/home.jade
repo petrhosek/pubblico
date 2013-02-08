@@ -1,0 +1,131 @@
+doctype 5
+html
+  head
+    block head
+      meta(charset='utf8')
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      base(href='/')
+      title
+        block title
+        | Pubblico
+      link(rel='stylesheet', href='/css/bootstrap.min.css')
+      link(rel='stylesheet', href='/css/bootstrap-responsive.min.css')
+      link(rel='stylesheet', href='/css/home.css')
+      //if lt IE 9
+        script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+      link(rel='shortcut icon', href='/img/favicon.ico')
+      link(rel='apple-touch-icon-precomposed', sizes='144x144', href='/img/apple-touch-icon-144-precomposed.png')
+      link(rel='apple-touch-icon-precomposed', sizes='114x114', href='/img/apple-touch-icon-114-precomposed.png')
+      link(rel='apple-touch-icon-precomposed', sizes='72x72', href='/img/apple-touch-icon-72-precomposed.png')
+      link(rel='apple-touch-icon-precomposed', href='/img/apple-touch-icon-57-precomposed.png')
+  body.home
+    nav.navbar
+      .navbar-inner
+        .container
+          a.brand(href='http://pubbli.co.uk/')
+            img(src='/img/pubblico.png', alt='Pubblico', width='140', height='40')
+          .nav-collapse
+            ul.nav.nav-pills.pull-right.actions
+              li.active
+                #signup-modal.modal.hide.fade(role='dialog', aria-labelledby='signup-modallabel', aria-hidden='true')
+                  .modal-header
+                    btn.close(type='button', data-dismiss='modal', aria-hidden='true') x
+                    h3 Sign up to Pubblico
+                  .modal-body
+                    form(action='/signup', method='POST', autocomplete='off')
+                      fieldset
+                        h5 With email
+                        input#id_username(type='text', name='username', maxlength='30', placeholder='Username')
+                        input#id_email(type='text', name='email', maxlength='30', placeholder='Email')
+                        input#id_password(type='password', name='password', placeholder='Password')
+                        input.btn(type='submit', value='Sign up')
+                      a(href='/login/')
+                        span Already have an account?
+                         Log in
+                a(href='#signup-modal', role='button', data-toggle='modal') Sign up
+              li
+                #login-modal.modal.hide.fade(role='dialog', aria-labelledby='login-modallabel', aria-hidden='true')
+                  .modal-header
+                    btn.close(type='button', data-dismiss='modal', aria-hidden='true') x
+                    h3 Log in to Pubblico
+                  .modal-body
+                    form(action='/login', method='POST', autocomplete='off')
+                      fieldset
+                        h5 With Pubblico account
+                        input#id_username.input-xlarge(type='text', name='username', maxlength='30', placeholder='Username or email')
+                        input#id_password.input-xlarge(type='password', name='password', placeholder='Password')
+                        input.btn(type='submit', value='Log in')
+                      a(href='/accounts/password/reset')
+                        span Forgot password?
+                       · 
+                      a(href='/signup/')
+                        span Sign up to Pubblico
+                a(href='#login-modal', role='button', data-toggle='modal') Sign in
+            ul.nav
+              li
+                a(href='/conferences/') Conferences
+              li
+                a(href='/about/') About us
+    article.container
+      #landing
+    .container
+      .jumbotron
+        //-h1 Your conferences
+        //-  small All in one place, organized and managed
+        //-p
+        //-  a.btn.btn-primary.btn-large(href='/signup/', data-link='modal', data-target='#signup-modal') Sign up for free
+        form.home-signup.pull-right(action='/signup', method='POST', autocomplete='off')
+          fieldset
+            input#id_email(type='text', name='email', maxlength='30', placeholder='Your email')
+            input#id_affiliation(type='text', name='affiliation', maxlength='30', placeholder='Provide affiliation')
+            input#id_password(type='password', name='password', placeholder='Create a password')
+            span.help-block Use at least one number and at least 7 characters.
+            p.signup-agreement
+              small
+                | By clicking on "Sign up for free" below, you agree to the 
+                a(href='http://pubbli.co.uk/terms', target='_blank') Terms of Service
+                |  and the 
+                a(href='http://pubbli.co.uk/privacy', target="_blank") Privacy Policy
+                | .
+            button.btn.btn-primary.btn-large(type='submit') Sign up for free
+    .container
+      section
+        .row.features
+          .span4
+            h3 One place for your conferences
+            p Pubblico keeps track of all your submissions in one place.
+            a(href='/sync/') Learn more
+          .span4
+            h3 Organized and archived
+            p When you submit a paper through Pubblico, it's there when you need it.
+            a(href='/archive/') Learn more
+          .span4
+            h3 Comment and share
+            p Discuss the papers with other researchers.
+            a(href='/comment/') Learn more
+    .container
+      section
+        .row.testimonials
+          .follow-buttons
+            div(style='vertical-align:bottom;') Twitter
+            div(style='vertical-align:middle;') Facebook
+            div(style='vertical-align:bottom;') Google+
+    div(style='background:whitesmoke; color:#111; padding:80px 0 20px')
+      .container
+        section.row.awesome
+          h2 The best place for your conferences
+          a.btn.btn-primary.btn-large(href='/signup') Sign up
+    footer
+      .container
+        p
+          a(href='/about/') About us
+          a(href='/developers/') Developers / API
+          a(href='mailto:hello@pubbli.co.uk') Contact
+          a(href='http://blog.pubbli.co.uk/') Blog
+          &copy; 2013 Pubblico. Built with passion.
+    //- In production use: script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js')
+    script(src='lib/angular/angular.js')
+    script(src='lib/angular/angular-bootstrap.js')
+    script(src='lib/angular/angular-resource.js')
+    script(src='lib/jquery/jquery-1.9.0.js')
+    script(src='lib/bootstrap/bootstrap.js')
