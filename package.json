@@ -11,10 +11,13 @@
     "express": "3.0.x",
     "jade": ">= 0.0.1",
     "stylus": ">= 0.0.1",
-    "mongoose": "3.5.x"
+    "mongoose": "3.5.x",
+    "passport": ">= 0.1.15",
+    "passport-local": ">= 0.1.6",
+    "bcrypt": ">= 0.7.3"
   },
   "devDependencies": {
-    "grunt": "0.3.x",
+    "apiary-blueprint-parser": "0.4.x",
     "testacular": "0.4.x"
   },
   "repository": {
@@ -22,6 +25,7 @@
     "url": "https://github.com/petrh/pubblico.git"
   },
   "engines": {
-    "node": "0.8.x"
+    "node": "0.8.x",
+    "npm": "1.1.x"
   }
 }

@@ -4,6 +4,7 @@
 
 var express = require('express')
   , mongoose = require('mongoose')
+  , passport = require('passport')
   , stylus = require('stylus')
   , routes = require('./routes')
   , api = require('./routes/api');
@@ -42,12 +43,33 @@ app.configure('production', function() {
   app.use(express.errorHandler())
 });
 
+var LocalStrategy = require('passport-local').Strategy;
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+      if (err) done (err);
+      if (!user) {
+        return done(null, false, { message: "Username invalid." });
+      }
+      bcrypt.compare(password, user.hash, function (err, didSucceed) {
+        if (err) done (err);
+        if (didSucceed) done(null, user);
+        return done(null, false, { message: "Password invalid." });
+      });
+    });
+  }));
+
 /*
  * Express Routes
  */
 
 app.get('/', routes.index);
+app.get('/logout', routes.logout);
 app.get('/partials/:name', routes.partials);
+
+app.post('/login', passport.authenticate('local', { successRedirect: '/',
+                                                    failureRedirect: '/login' }));
 
 // Redirect all others to the index
 
