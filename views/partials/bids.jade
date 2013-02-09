@@ -1,6 +1,6 @@
 h3.name Bid on submissions for "{{conference.longName}}"
 #conference-container
-  ul#submission-list.unstyled(ng-repeat='submission in conference.submissions')
+  ul#submission-list.unstyled(ng-repeat='submission in submissions')
     li.submission
       .submission-content
         a(href='#') {{submission.title}}
