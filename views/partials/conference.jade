@@ -1,17 +1,24 @@
-#submissions
+#conference
   .clearfix
-    .list-info
+    #conference-info
       h3.name {{conference.longName}}
-      ul.list-actions.unstyled
+      ul.conference-actions.unstyled
         li.btn-group
-          a.btn.dropdown-toggle(href='#', data-toggle='dropdown')
-            b.caret
-          ul.dropdown-menu.pull-right
+          button.btn.dropdown-toggle(data-toggle='dropdown')
+            i.icon-cog
+            span.caret
+          ul.dropdown-menu.pull-right(role='menu', aria-labelledby="dropdownMenu")
+            li
+              a(href='#') Action
     #new-clip
       input(placeholder='Add a submission...', type='text')
-  .submissions-container
-    ul#submissions-list.unstyled(ng-repeat='submission in submissions')
+  #conference-container
+    ul#submission-list.unstyled(ng-repeat='submission in conference.submissions')
       li.submission
         .submission-content
           a(href='#') {{submission.title}}
           p {{submission.authors}}
+          ul
+            li(ng-repeat='tag in submission.tags')
+              span.label.label-info {{tag}}
+        .submission-actions
