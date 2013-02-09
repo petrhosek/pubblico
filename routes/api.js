@@ -2,12 +2,18 @@ var User = require('../models/User.js');
 var Conference = require('../models/Conference.js');
 
 exports.submissions = function(req, res) {
-    Conference.findOne({"name": req.params.conference},'title abstract', function(err, submissions) {
+    Conference.findOne({"shortName": req.params.conference},'submissions', function(err, c) {
         if (err) {
             console.log(err);
             res.json(null);
         } else {
-            res.json(submissions);
+			var sub_details = [];
+			for (s in c.submissions){
+				sub_detais[s] = {'title':c.submissions[s]['title'],
+					'abstract':c.submissions[s]['abstract']
+				};
+			}
+            res.json(sub_details);
         }
     });
 };
@@ -16,11 +22,12 @@ exports.submissions = function(req, res) {
  * This serves the metadata of the specified conference.
  */
 exports.conference = function(req, res) {
-    Conference.findOne({"name": req.params.conference}, 'shortName longName dates', function(err, conf_metadata){
+    Conference.findOne({"shortName": req.params.conference}, 'shortName', function(err, conf_metadata){
         if (err) {
             console.log(err);
             res.json(null);
         } else {
+			console.log('bla');
             res.json(conf_metadata);
         }
     });

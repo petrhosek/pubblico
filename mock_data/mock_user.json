@@ -1,52 +1,47 @@
 {
-	"users":[
+	"users":
+[
 	{
-		"_id":"user0",
-		"login": "rturliuc",
+		"email": "rturliuc@gmail.com",
 		"name":{
 			"first":"Rares",
 			"last":"Turliuc"
 		}
 	},
 	{
-		"_id":"user1",
-		"login": "petrh",
+		"email": "petrh",
 		"name":{
 			"first":"Petr",
 			"last":"Hosek"
 		}
 	},
 	{
-		"_id":"user2",
-		"login": "nickng",
+		"email": "nickng",
 		"name":{
 			"first":"Nick",
 			"last":"Ng"
 		}
 	},
 	{
-		"_id":"user3",
-		"login": "florian",
+		"email": "florian",
 		"name":{
 			"first":"Florian",
 			"last":"last3"
 		}
 	},
 	{
-		"_id":"user4",
-		"login": "login4",
+		"email": "login4",
 		"name":{
 			"first":"first4",
 			"last":"last4"
 		}
 	},
 	{
-		"_id":"user5",
-		"login": "login5",
+		"email": "login5",
 		"name":{
 			"first":"first5",
 			"last":"last5"
 		}
 	}
-	]
+]
 }

@@ -1,87 +1,67 @@
 {"conferences":
 [
 {
-	"_id":"conf0",
-	"name":"iccsw12",
-	"committee":["user6", "user7"],
+	"shortName":"iccsw12",
 	"submissions":[
 		{
-			"_id":"submission0",
 			"title":"paper1",
 			"abstract": "abstract1",
-			"authors": ["user0", "user1"],
 			"reviews": [
 			{
-				"reviewer":"user2",
 				"overallMerit":"90",
 				"qualification":"75"
 			},
 			{
-				"reviewer":"user3",
 				"overallMerit":"40",
 				"qualification":"80"
 			}
 			],
 			"comments": [
 			{
-				"commenter":"user4",
 				"comment":"this paper is bad"
 			},
 			{
-				"commenter":"user1",
 				"comment":"no, the paper is good"
 			}
 			],
 			"bids" : [
 			{
-				"user":"user2",
 				"selection":"yes" 
 			},
 			{
-				"user":"user3",
 				"selection":"yes"
 			}
-			],
-		    "assignment" : ["user2", "user3"]	
+			]
 		},
 		{
-			"_id":"submission1",
 			"title":"paper2",
 			"abstract":"abstract2",
-			"authors":["user1","user3"],
 			"reviews": [
 			{
-				"reviewer":"user5",
 				"overallMerit":"60",
 				"qualification":"30"
 			},
 			{
-				"reviewer":"user2",
 				"overallMerit":"70",
 				"qualification":"50"
 			}
 			],
 			"comments": [
 			{
-				"commenter":"user5",
 				"comment":"I don't like theorem 5"
 			},
 			{
-				"commenter":"user1",
 				"comment":"I fixed theorem 5. Happy now?"
 			}
 			], 
 			"bids" : [
 			{
-				"user":"user2",
 				"selection":"yes" 
 			},
 			{
-				"user":"user5",
 				"selection":"yes"
 			}
-			],
-		    "assignment" : ["user2", "user5"]	
+			]
 		}
 	]
 }

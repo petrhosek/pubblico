@@ -3,7 +3,11 @@ var mongoose = require('mongoose')
 
 var UserSchema = new mongoose.Schema({
     email: { type: String, unique: true }
+<<<<<<< Updated upstream
   , hash: String
+=======
+  , password: String
+>>>>>>> Stashed changes
   , name: {
         first: String
       , last: String
