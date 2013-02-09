@@ -15,9 +15,13 @@ angular.module('pubblicoApp', ['pubblicoApp.filters', 'pubblicoApp.services', 'p
         templateUrl: 'partials/conference',
         controller: 'ConferenceDetailCtrl'
       }).
-      when('/newSubmission', {
+      when('/conferences/:id/newSubmission', {
         templateUrl: 'partials/newSubmission',
         controller: 'SubmissionsNewCtrl'
+      }).
+      when('/conferences/:id/bids', {
+        templateUrl: 'partials/bids',
+        controller: 'ConferenceDetailCtrl'
       }).
       /*when('/readSubmission/:id', {
         templateUrl: 'partials/readSubmission',

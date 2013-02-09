@@ -1,0 +1,18 @@
+h3.name Bid on submissions for "{{conference.longName}}"
+#conference-container
+  ul#submission-list.unstyled(ng-repeat='submission in conference.submissions')
+    li.submission
+      .submission-content
+        a(href='#') {{submission.title}}
+        p {{submission.authors}}
+        ul
+          li(ng-repeat='tag in submission.tags')
+            span.label.label-info {{tag}}
+        p {{submission.abstract}}
+      .submission-actions
+        form.form-inline
+          label Bid on this submission:
+          .btn-group
+            a.btn(href='#') Yes
+            a.btn(href='#') No
+            a.btn(href='#') Conflict
