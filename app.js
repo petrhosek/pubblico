@@ -6,6 +6,7 @@ var express = require('express')
   , mongoose = require('mongoose')
   , passport = require('passport')
   , stylus = require('stylus')
+  , nib = require('nib')
   , routes = require('./routes')
   , api = require('./routes/api');
 
@@ -20,9 +21,14 @@ app.configure(function() {
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(stylus.middleware({
-    src: __dirname + '/public',
+    src: __dirname + '/views',
     dest: __dirname + '/public',
-    compress: false
+    compile: function (str, path) {
+      return stylus(str)
+        .set('filename', path)
+        .set('compress', true)
+        .use(nib());
+    }
   }));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
