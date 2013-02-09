@@ -27,7 +27,8 @@ block body
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown')
             span.username
-              img.avatar(width=32, height=32, title='petrh') petrh
+              //-gravatar(data-email='email', data-size='32', data-rating='pg', data-default='404')
+              img.avatar(width=32, height=32, title='petrh', src='http://www.gravatar.com/avatar/6da8d726322a53e094431a1b0d589601?s=32') petrh
             b.caret
           ul.dropdown-menu
             li
@@ -52,10 +53,12 @@ block body
             #user-lists.ui-sortable
             li(ng-repeat='conference in conferences')
               a(href='/conferences/{{conference.id}}') {{conference.shortName}}
-            #new-list
-              a.add-list(href='/add-list') New list
+            #new-conference
+              a.new-conference(href='#edit-conference-modal', role='button', data-toggle='modal') + New conference
         .span9.columns.content
           .ng-view
+  include partials/editConference
+  //-include partials/editSubmission
   //- In production use: script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js')
   script(src='lib/angular/angular.js')
   script(src='lib/angular/angular-bootstrap.js')
