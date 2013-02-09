@@ -54,7 +54,21 @@ GET /api/v1/conferences/{conference}/submissions
 [{
     "title": "Towards the Improvement of Randomized Algorithms",
     "abstract": "The implications of permutable communication have been far-reaching and pervasive. This follows from the understanding of agents [21]. Given the current status of distributed algorithms, electrical engineers compellingly desire the evaluation of IPv7. In order to realize this goal, we describe a novel system for the construction of systems (Ecchymosis), showing that spreadsheets and RPCs [21] are generally incompatible.",
-    "author": ["c7a43293-7d08-44a9-a26e-32a57eca54f1", "55403059-0e15-4075-9800-4440b71d852f"],
+    "authors": [{
+        "affiliation" : "University of Example",
+        "email" : "example@example.edu",
+        "name": {
+            "last": "LAST",
+            "first": "FIRST"
+        }
+    },{
+        "affiliation" : "University of Exampl22222e",
+        "email" : "example2@example.edu",
+        "name": {
+            "last": "LAST222",
+            "first": "FIRST11111"
+        }
+    }],
     "submitted": "2013-02-04T10:18:28.531Z",
     "lastUpdated": "2013-02-04T10:18:28.531Z",
     "tags": ["network", "agents"],
@@ -66,7 +80,14 @@ GET /api/v1/conferences/{conference}/submissions
 {
     "title": "The Effect of Electronic Modalities on Cryptography",
     "abstract": "Cyberneticists agree that compact methodologies are an interesting new topic in the field of e-voting technology, and cyberinformaticians concur. In fact, few end-users would disagree with the study of XML. in this position paper we show not only that compilers and symmetric encryption are often incompatible, but that the same is true for web browsers [3].",
-    "authors": ["cb9dd3ad-c432-4b58-90e7-bcc648ba2cb8"],
+    "authors": [{
+        "affiliation" : "University of Wolf",
+        "email": "lone@user.edu",
+        "name" : {
+            "first" : "lone",
+            "last" : "user"
+        }
+    }],
     "submitted": "2013-02-07T12:53:22.531Z",
     "lastUpdated": "2013-02-08T15:22:56.531Z",
     "tags": ["cryptography", "modality"],
@@ -87,17 +108,14 @@ GET /api/v1/conferences/{conference}/submitters
 < 200
 < Content-Type: application/json
 [{
-    "id": 1,
-    "emails": [ "foobar@example.edu" ],
     "affiliation": "Example University",
+    "emails": [ "foobar@example.edu" ],
     "name": {
         "first": "Foo",
         "last": "Bar"
-    },
-    "active": true
+    }
 },
 {
-    "id": 2,
     "emails": [ "organiser@example.edu", "organiser@example.ac.uk" ],
     "affiliation": "Example University",
     "name": {
@@ -112,7 +130,6 @@ GET /api/v1/conferences/{conference}/organisers
 < 200
 < Content-Type: application/json
 [{
-    "id": 1,
     "emails": [ "foobar@example.edu" ],
     "affiliation": "Example University",
     "name": {
