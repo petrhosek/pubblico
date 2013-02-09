@@ -65,7 +65,7 @@ passport.use(new LocalStrategy(
  */
 
 app.get('/', routes.index);
-app.get('/logout', routes.logout);
+app.get('/home', routes.home);
 app.get('/partials/:name', routes.partials);
 
 app.post('/login', passport.authenticate('local', { successRedirect: '/',
