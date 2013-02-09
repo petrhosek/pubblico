@@ -15,6 +15,7 @@ section.teasers h3{margin:0 0 10px;line-height:1.1}
 section.teasers p{margin:0 0 10px;color:#5a5a5a}
 .home section{padding:60px 0}
 section.awesome{text-align:center}
+section .follow-buttons div{display:inline-block}
 footer{padding:40px 0;text-align:center;margin-top:40px;color:#666}
 footer p{font-size:14px;color:#666}
 footer a{margin:0 2em;color:#666}

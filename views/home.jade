@@ -110,18 +110,34 @@ html
             p Discuss the papers with other researchers.
             p
               a.btn(href='/comment/') Learn more
-    .container
-      section
-        .row.testimonials
-          .follow-buttons
-            div(style='vertical-align:bottom;') Twitter
-            div(style='vertical-align:middle;') Facebook
-            div(style='vertical-align:bottom;') Google+
     div(style='background:whitesmoke; color:#111; padding:80px 0 20px')
       .container
         section.row.awesome
           h2 The best place for your conferences
-          a.btn.btn-primary.btn-large(href='/signup') Sign up
+          .follow-buttons
+            div(style='vertical-align:bottom;')
+              a.twitter-share-button(href='https://twitter.com/share', data-text='One place for your conferences http://pubbli.co.uk via @pubblicoapp') Tweet
+              script
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+            div(style='vertical-align:middle;')
+              .fb-like(data-href='https://pubbli.co.uk/', data-send='false', data-layout='button_count', data-width='450', data-show-faces='false')
+              #fb-root
+              script
+                (function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            div(style='vertical-align:bottom;')
+              .g-plusone(data-size='medium', data-href='https://pubbli.co.uk/')
+              script
+                (function() {
+                  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                  po.src = 'https://apis.google.com/js/plusone.js';
+                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                })();
     footer
       .container
         p

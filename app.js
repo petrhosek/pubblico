@@ -46,7 +46,7 @@ app.configure(function() {
 });
 
 app.configure('development', function() {
-  mongoose.connect('mongodb://'+host+'/'+manifest.name+'-dev');
+  //mongoose.connect('mongodb://'+host+'/'+manifest.name+'-dev');
   app.use(express.errorHandler({
     dumpExceptions: true,
     showStack: true
