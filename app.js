@@ -3,13 +3,18 @@
  */
 
 var express = require('express')
+  , manifest = require('./package.json')
   , mongoose = require('mongoose')
+  , bcrypt = require('bcrypt')
   , passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy
   , stylus = require('stylus')
   , nib = require('nib')
   , routes = require('./routes')
-  , api = require('./routes/api');
+  , api = require('./routes/api')
+  , User = require('./models/User');
 
+var host = process.env.HOST || "0.0.0.0";
 var app = module.exports = express();
 var server = require('http').createServer(app);
 
@@ -30,14 +35,18 @@ app.configure(function() {
         .use(nib());
     }
   }));
+  app.use(express.cookieParser());
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(express.session({secret: process.env.SESSION_SECRET || 'shhhhhhh!'}));
+  app.use(passport.initialize());
+  app.use(passport.session());
   app.use(express.static(__dirname + '/public'));
   app.use(app.router);
 });
 
 app.configure('development', function() {
-  //mongoose.connect('mongodb://localhost/blog');
+  mongoose.connect('mongodb://'+host+'/'+manifest.name+'-dev');
   app.use(express.errorHandler({
     dumpExceptions: true,
     showStack: true
@@ -45,26 +54,36 @@ app.configure('development', function() {
 });
 
 app.configure('production', function() {
-  //mongoose.connect('mongodb://user:pass@host:port/dbname');
+  mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://'+host+'/'+manifest.name);
   app.use(express.errorHandler())
 });
 
-var LocalStrategy = require('passport-local').Strategy;
 
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) done (err);
-      if (!user) {
-        return done(null, false, { message: "Username invalid." });
-      }
-      bcrypt.compare(password, user.hash, function (err, didSucceed) {
-        if (err) done (err);
-        if (didSucceed) done(null, user);
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password'
+  },
+  function(email, password, done) {
+    User.findOne({ email: email }, function (err, user) {
+      if (err) return done (err);
+      if (!user) return done(null, false, { message: "Username invalid." });
+      bcrypt.compare(password, user.hash, function(err, res) {
+        if (err) return done(err);
+        if (res) return done(null, user);
         return done(null, false, { message: "Password invalid." });
       });
     });
   }));
+
+passport.serializeUser(function(user, done) {
+  done(null, user._id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
 
 /*
  * Express Routes
