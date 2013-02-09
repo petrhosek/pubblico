@@ -2,6 +2,49 @@
   background: url("../../img/home-bg-papers.jpg") left 90px no-repeat, url("../../img/home-bg-grey.png") left 90px repeat-x;
 }
 
+.navbar .navbar-inner {
+  background: #fff;
+  color: #000;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border: none;
+  text-shadow: none;
+  padding: 20px 0 10px;
+}
+
+.container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+  /*width: 940px;*/
+}
+
+.navbar {
+  height: 90px;
+  margin-bottom: 0px;
+}
+
+.navbar .container {
+  /*width: 940px;*/
+}
+
+.navbar .navbar-inner .nav.actions, .topbar .nav.actions {
+  border-left: 1px solid #ddd;
+  margin-left: 20px;
+  padding-left: 20px;
+  float: right;
+}
+
+.navbar .navbar-inner .nav {
+  float: right;
+}
+
+.navbar .navbar-inner .nav > li {
+  float: left;
+  display: block;
+  margin-bottom: 0;
+}
+
 .home .jumbotron {
   background: url("../../img/home-hero.png") right bottom no-repeat;
   height: 325px;
@@ -47,47 +90,19 @@
   font-size: 12px;
 }
 
-.navbar .navbar-inner {
-  background: #fff;
-  color: #000;
-  box-shadow: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border: none;
-  text-shadow: none;
-  padding: 20px 0 10px;
-}
-
-.container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
-  width: 940px;
-}
-
-.navbar {
-  height: 90px;
-  margin-bottom: 0px;
-}
-
-.navbar .container {
-  width: 940px;
-}
-
-.navbar .navbar-inner .nav.actions, .topbar .nav.actions {
-  border-left: 1px solid #ddd;
-  margin-left: 20px;
-  padding-left: 20px;
-  float: right;
-}
-
-.navbar .navbar-inner .nav {
-  float: right;
-}
-
-.navbar .navbar-inner .nav > li {
-  float: left;
+section.teasers {
+  text-align: center;
   display: block;
-  margin-bottom: 0;
+}
+
+section.teasers h3 {
+  margin: 0 0 10px;
+  line-height: 1.1;
+}
+
+section.teasers p {
+  margin: 0 0 10px;
+  color: #5a5a5a;
 }
 
 .home section {

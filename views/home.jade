@@ -19,7 +19,7 @@ html
       link(rel='apple-touch-icon-precomposed', sizes='72x72', href='/img/apple-touch-icon-72-precomposed.png')
       link(rel='apple-touch-icon-precomposed', href='/img/apple-touch-icon-57-precomposed.png')
   body.home
-    nav.navbar
+    nav.navbar.navbar-static-top
       .navbar-inner
         .container
           a.brand(href='http://pubbli.co.uk/')
@@ -89,20 +89,27 @@ html
                 | .
             button.btn.btn-primary.btn-large(type='submit') Sign up for free
     .container
-      section
-        .row.features
+      section.teasers
+        .row
           .span4
+            img.teaser-cloud(src='img/icon-cloud.png', height='75', width='130')
+            //-i.cloud
             h3 One place for your conferences
             p Pubblico keeps track of all your submissions in one place.
-            a(href='/sync/') Learn more
+            p
+              a.btn(href='/sync/') Learn more
           .span4
+            img.teaser-document(src='img/icon-document.png', height='75', width='85')
             h3 Organized and archived
             p When you submit a paper through Pubblico, it's there when you need it.
-            a(href='/archive/') Learn more
+            p
+              a.btn(href='/archive/') Learn more
           .span4
+            img.teaser-comment(src='img/icon-comment.png', height='75', width='120')
             h3 Comment and share
             p Discuss the papers with other researchers.
-            a(href='/comment/') Learn more
+            p
+              a.btn(href='/comment/') Learn more
     .container
       section
         .row.testimonials
