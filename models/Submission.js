@@ -2,23 +2,22 @@ var mongoose = require('mongoose');
 
 var ReviewSchema = new mongoose.Schema({
     reviwer: { type: mongoose.Schema.ObjectId, ref: 'User' }
-  , overAllMerit: Number
-  , reviewerQualification: Number
+  , overallMerit: Number
+  , qualification: Number
   , novelty: Number
   , technicalMerit: Number
   , interestToCommunity: Number
   , summary: String
   , strengts: String
   , weaknesses: String
-  , comments: String
-  , comments: [{
-    }]
 });
 
 var SubmissionSchema = new mongoose.Schema({
     title: String
   , abstract: String
   , authors: [{ type: mongoose.Schema.ObjectId, ref: 'User' }]
+  , bids: [{user:{ type: mongoose.Schema.ObjectId, ref: 'User' }, selection: {type: String, enum:['yes', 'no', 'maybe', 'conflict']}}]
+  , assignment : [{ type: mongoose.Schema.ObjectId, ref: 'User'}]
   , submission: Buffer
   , submitted: Date
   , updated: { type: Date, default: Date.now }

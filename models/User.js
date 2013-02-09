@@ -15,7 +15,7 @@ var UserSchema = new mongoose.Schema({
   , active: Boolean
 });
 
-UserSchema.statics.register = function(doc, fn) {
+/*UserSchema.statics.register = function(doc, fn) {
   var password = doc.password;
 
   delete doc.password; // don't store password
@@ -24,13 +24,14 @@ UserSchema.statics.register = function(doc, fn) {
 
   User.create(doc, fn);
 }
+*/
 
-UserSchema.methods.authenticate = function(password, done) {
+/*UserSchema.methods.authenticate = function(password, done) {
   bcrypt.compare(password, this.hash, function(err, res) {
     if (err) done(err);
     if (res) done(null, this);
     return done(null, false, { message: "Password invalid." });
   });
 }
-
+*/
 module.exports = mongoose.model('User', UserSchema);
