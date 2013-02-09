@@ -23,6 +23,14 @@ angular.module('pubblicoApp', ['pubblicoApp.filters', 'pubblicoApp.services', 'p
         templateUrl: 'partials/bids',
         controller: 'ConferenceDetailCtrl'
       }).
+      when('/conferences/:conference/submissions1/:submission', {
+        templateUrl: 'partials/editSubmission',
+        controller: 'SubmissionsEditCtrl'
+      }).
+      when('/conferences/:conference/submissions/:submission', {
+        templateUrl: 'partials/readSubmission',
+        controller: 'SubmissionsReadCtrl'
+      }).
       /*when('/readSubmission/:id', {
         templateUrl: 'partials/readSubmission',
         controller: 'SubmissionsReadCtrl'

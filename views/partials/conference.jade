@@ -10,8 +10,9 @@
           ul.dropdown-menu.pull-right(role='menu', aria-labelledby="dropdownMenu")
             li
               a(href='/conferences/{{conference.id}}/bids') Bid on submissions
-    #new-clip
-      input(placeholder='Add a submission...', type='text')
+      p {{conference.description}}
+    //-#new-clip
+      //-input(placeholder='Add a submission...', type='text')
   #conference-container
     ul#submission-list.unstyled
       li.submission(ng-repeat='submission in submissions')
@@ -19,9 +20,21 @@
           span.submission-date
             abbr.timeago(title='{{submission.submitted}}')
               {{submission.submitted | ago}}
-          a.submission-title(href='#') {{submission.title}}
-          p {{submission.authors}}
-          ul.unstyled
-            li(ng-repeat='tag in submission.tags')
-              span.label.label-info {{tag}}
+          a.submission-title(href='/conferences/{{conference.id}}/submissions/{{submission.id}}') {{submission.title}}
+          ul.submission-authors.unstyled
+            li.author(ng-repeat='author in submission.authors')
+              a(href='/user/{{author.email}}') {{author.name.first}} {{author.name.last}}
+              | 
+              span {{author.affiliation}}
+          a.edit-submission(href='/conferences/{{conference.id}}/submissions/{{submission.id}}') Edit
+          //-div(ng-include, src='partials/editSubmission')
+          //-a.edit-submission(ng-click='showSubmission(submission.title)', role='button', data-toggle='modal') Edit
+          //-a.edit-submission(ng-click='edit(submission.title)', role='button', data-toggle='modal', modal='edit-submission-modal') Edit
+          p.meta
+            span.comment
+              a(title='Comment')
+                i.icon.icon-comment
+                | Add comment
+          .tags
+            span.tag.label.label-info(ng-repeat='tag in submission.tags') {{tag}}
         .submission-actions
