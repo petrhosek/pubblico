@@ -77,21 +77,19 @@ app.get('/partials/:name', routes.partials);
 app.post('/login', passport.authenticate('local', { successRedirect: '/',
                                                     failureRedirect: '/login' }));
 
-// Redirect all others to the index
-
-app.get('*', routes.index);
-
 /*
  * JSON API
  */
 
-app.get('/api/v1/submissions', api.posts);
-app.get('/api/v1/submissions/:id', api.post);
-app.post('/api/v1/submissions', api.addPost);
-app.put('/api/v1/submissions/:id', api.editPost);
-app.delete('/api/v1/submissions/:id', api.deletePost);
+app.get('/api/v1/conferences/:conference', api.conference);
+app.get('/api/v1/conferences/:conference/submissions', api.submissions);
 
 // app.resource('posts', require('/resources/posts'), {base: '/api/v1/'});
+
+// Redirect all others to the index
+
+app.get('*', routes.index);
+
 
 /*
  * Start server
