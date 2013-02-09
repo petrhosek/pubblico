@@ -7,8 +7,8 @@ angular.module('pubblicoApp.services', ['ngResource']).
     });
   }]).
   factory('Submission', ['$resource', function($resource) {
-    return $resource('http://petrh.apiary.io/api/v1/submissions/:submission', {}, {
-      query: { method: 'JSONP', isArray: true }
+    return $resource('http://petrh.apiary.io/api/v1/conferences/:conference/submissions/:submission', {}, {
+      index: { method: 'JSONP', isArray: true }
     });
   }]).
   factory('nowTime', ['$timeout', function($timeout) {

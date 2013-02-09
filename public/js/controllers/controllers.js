@@ -27,9 +27,10 @@ angular.module('pubblicoApp').controller('SidebarConferenceCtrl', ['$scope', 'Co
   $scope.conferences = Conference.query();
 }]);
 
-angular.module('pubblicoApp').controller('ConferenceDetailCtrl', ['$scope', '$routeParams', 'Conference',
-    function ($scope, $routeParams, Conference) {
+angular.module('pubblicoApp').controller('ConferenceDetailCtrl', ['$scope', '$routeParams', 'Conference', 'Submission',
+    function ($scope, $routeParams, Conference, Submission) {
   $scope.conference = Conference.get({conference: $routeParams.id});
+  $scope.submissions = Submission.query({conference: $routeParams.id});
 }]);
 
 angular.module('pubblicoApp').controller('SubmissionsListCtrl', ['$scope', 'Submission',

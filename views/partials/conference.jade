@@ -14,7 +14,7 @@
       input(placeholder='Add a submission...', type='text')
   #conference-container
     ul#submission-list.unstyled
-      li.submission(ng-repeat='submission in conference.submissions')
+      li.submission(ng-repeat='submission in submissions')
         .submission-content
           span.submission-date
             abbr.timeago(title='{{submission.submitted}}')
