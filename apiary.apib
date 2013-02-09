@@ -2,14 +2,14 @@ HOST: http://localhost:3000
 
 --- Pubblico API v1 ---
 ---
-Welcome to the our sample API documentation. All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
+Pubblico API
 ---
 
 --
-Conference Resources
+Conference resources
 The following is a section of resources related to the conference
 --
-List all conferences
+List all conferences.
 GET /api/v1/conferences
 < 200
 < Content-Type: application/json
@@ -32,7 +32,7 @@ GET /api/v1/conferences
     "dates": { "from": "2013-09-26T9:00:00.000Z" , "to": "2013-09-27T17:00:00.000Z" }
 }]
 
-Conference detail
+Conference public metadata.
 GET /api/v1/conferences/{conference}
 < 200
 < Content-Type: application/json
@@ -40,23 +40,70 @@ GET /api/v1/conferences/{conference}
     "id": "iccsw13",
     "shortName": "ICCSW'13",
     "longName": "2013 Imperial College Computing Student Workshop",
-    "dates": { "from": "2013-09-26T9:00:00.000Z" , "to": "2013-09-27T17:00:00.000Z" },
-    "submissions": [
-        {
-            "title": "Towards the Improvement of Randomized Algorithms",
-            "abstract": "The implications of permutable communication have been far-reaching and pervasive. This follows from the understanding of agents [21]. Given the current status of distributed algorithms, electrical engineers compellingly desire the evaluation of IPv7. In order to realize this goal, we describe a novel system for the construction of systems (Ecchymosis), showing that spreadsheets and RPCs [21] are generally incompatible.",
-            "author": ["c7a43293-7d08-44a9-a26e-32a57eca54f1", "55403059-0e15-4075-9800-4440b71d852f"],
-            "submitted": "2013-02-04T10:18:28.531Z",
-            "updated": "2013-02-04T10:18:28.531Z",
-            "tags": ["network", "agents"]
-        },
-        {
-            "title": "The Effect of Electronic Modalities on Cryptography",
-            "abstract": "Cyberneticists agree that compact methodologies are an interesting new topic in the field of e-voting technology, and cyberinformaticians concur. In fact, few end-users would disagree with the study of XML. in this position paper we show not only that compilers and symmetric encryption are often incompatible, but that the same is true for web browsers [3].",
-            "author": ["cb9dd3ad-c432-4b58-90e7-bcc648ba2cb8"],
-            "submitted": "2013-02-07T12:53:22.531Z",
-            "updated": "2013-02-08T15:22:56.531Z",
-            "tags": ["cryptography", "modality"]
-        }
-    ]
+    "dates": { "from": "2013-09-26T9:00:00.000Z" , "to": "2013-09-27T17:00:00.000Z" }
 }
+
+--
+Conference detail resources
+The following is a section of resources related to the details of a conference
+--
+List all submissions of a conference.
+GET /api/v1/conference/{conference}/submissions
+< 200
+< Content-Type: application/json
+[{
+    "title": "Towards the Improvement of Randomized Algorithms",
+    "abstract": "The implications of permutable communication have been far-reaching and pervasive. This follows from the understanding of agents [21]. Given the current status of distributed algorithms, electrical engineers compellingly desire the evaluation of IPv7. In order to realize this goal, we describe a novel system for the construction of systems (Ecchymosis), showing that spreadsheets and RPCs [21] are generally incompatible.",
+    "author": ["c7a43293-7d08-44a9-a26e-32a57eca54f1", "55403059-0e15-4075-9800-4440b71d852f"],
+    "submitted": "2013-02-04T10:18:28.531Z",
+    "updated": "2013-02-04T10:18:28.531Z",
+    "tags": ["network", "agents"]
+},
+{
+    "title": "The Effect of Electronic Modalities on Cryptography",
+    "abstract": "Cyberneticists agree that compact methodologies are an interesting new topic in the field of e-voting technology, and cyberinformaticians concur. In fact, few end-users would disagree with the study of XML. in this position paper we show not only that compilers and symmetric encryption are often incompatible, but that the same is true for web browsers [3].",
+    "author": ["cb9dd3ad-c432-4b58-90e7-bcc648ba2cb8"],
+    "submitted": "2013-02-07T12:53:22.531Z",
+    "updated": "2013-02-08T15:22:56.531Z",
+    "tags": ["cryptography", "modality"]
+}]
+
+List all submitters and intended submitters.
+GET /api/v1/conferences/{conference}/submitters
+< 200
+< Content-Type: application/json
+[{
+    "id": 1,
+    "emails": [ "foobar@example.edu" ],
+    "affiliation": "Example University",
+    "name": {
+        "first": "Foo",
+        "last": "Bar"
+    },
+    "active": true
+},
+{
+    "id": 2,
+    "emails": [ "organiser@example.edu", "organiser@example.ac.uk" ],
+    "affiliation": "Example University",
+    "name": {
+        "first": "Organ",
+        "last": "Iser"
+    },
+    "active": true
+}]
+
+List of conference organisers for users to find the contacts of a conference.
+GET /api/v1/conferences/{conference}/organisers
+< 200
+< Content-Type: application/json
+[{
+    "id": 1,
+    "emails": [ "foobar@example.edu" ],
+    "affiliation": "Example University",
+    "name": {
+        "first": "Foo",
+        "last": "Bar"
+    },
+    "active": true
+}]
