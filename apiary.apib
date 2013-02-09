@@ -134,6 +134,24 @@ GET /api/v1/conferences/{conference}/submissions/{submission}
     "bids": [{
         "user": "user1",
         "selection": "conflict"
+    }],
+    "reviews": [{
+        "reviewer": {
+            "user": "user2"  
+        },
+        "score": 0.8,
+        "qualification": 0.6,
+        "summary": "Really nice paper",
+        "strengts": "Lots of nice stuff",
+        "weaknesses": "Lots of bad stuff",
+        "reviewed": "2013-02-05T10:18:28.531Z"
+    }],
+    "comments": [{
+        "commenter": {
+            "user": "user2"
+        },
+        "comment": "I really like this paper!",
+        "commented": "2013-02-06T10:18:28.531Z"
     }]
 }
 
