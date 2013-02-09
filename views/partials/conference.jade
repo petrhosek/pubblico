@@ -13,12 +13,15 @@
     #new-clip
       input(placeholder='Add a submission...', type='text')
   #conference-container
-    ul#submission-list.unstyled(ng-repeat='submission in conference.submissions')
-      li.submission
+    ul#submission-list.unstyled
+      li.submission(ng-repeat='submission in conference.submissions')
         .submission-content
-          a(href='#') {{submission.title}}
+          span.submission-date
+            abbr.timeago(title='{{submission.submitted}}')
+              {{submission.submitted | ago}}
+          a.submission-title(href='#') {{submission.title}}
           p {{submission.authors}}
-          ul
+          ul.unstyled
             li(ng-repeat='tag in submission.tags')
               span.label.label-info {{tag}}
         .submission-actions

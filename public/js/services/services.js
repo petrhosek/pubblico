@@ -10,6 +10,16 @@ angular.module('pubblicoApp.services', ['ngResource']).
     return $resource('http://petrh.apiary.io/api/v1/submissions/:submission', {}, {
       query: { method: 'JSONP', isArray: true }
     });
+  }]).
+  factory('nowTime', ['$timeout', function($timeout) {
+    var nowTime;
+    (function updateTime() {
+      nowTime = Date.now();
+      $timeout(updateTime, 1000);
+    }());
+    return function() {
+      return nowTime;
+    };
   }]);
 
 angular.module('pubblicoApp').
