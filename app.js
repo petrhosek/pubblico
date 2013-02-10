@@ -68,11 +68,7 @@ passport.use(new LocalStrategy({
     User.findOne({ email: email }, function (err, user) {
       if (err) return done (err);
       if (!user) return done(null, false, { message: "Username invalid." });
-      bcrypt.compare(password, user.hash, function(err, res) {
-        if (err) return done(err);
-        if (res) return done(null, user);
-        return done(null, false, { message: "Password invalid." });
-      });
+      return user.authenticate(password, done);
     });
   }));
 

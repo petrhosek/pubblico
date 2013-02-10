@@ -15,20 +15,16 @@ var UserSchema = new mongoose.Schema({
 });
 
 UserSchema.statics.register = function(doc, fn) {
-  console.log(doc);
-  var password = doc.password;
-
-  delete doc.password; //don't store password
   var salt = bcrypt.genSaltSync(10);
-  doc.hash = bcrypt.hashSync(password, salt);
-
+  doc.password = bcrypt.hashSync(doc.password, salt);
   this.model('User').create(doc, fn);
 }
 
 UserSchema.methods.authenticate = function(password, done) {
-  bcrypt.compare(password, this.hash, function(err, res) {
+  var user = this;
+  bcrypt.compare(password, user.password, function(err, res) {
     if (err) return done(err);
-    if (res) return done(null, this);
+    if (res) return done(null, user);
     return done(null, false, { message: "Password invalid." });
   });
 }
