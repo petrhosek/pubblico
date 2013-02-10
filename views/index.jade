@@ -39,20 +39,29 @@ block body
     .clearfix
       .row
         .span3.columns#sidebar(ng-controller='SidebarConferenceCtrl')
-          h5 LABELS
-          ul#lists.unstyled
-            #global-lists
-              li
-                a(href='/lists/submissions')
-                  i.icon.icon-envelope
-                  | Submissions
+          ul#conferences.unstyled
             li
-              a(href='/lists/reviews')
-                i.icon.icon-folder-close
-                | Reviews
-            #user-lists.ui-sortable
-            li(ng-repeat='conference in conferences')
-              a(href='/conferences/{{conference.id}}') {{conference.shortName}}
+              a(href='/home')
+                i.icon.icon-home
+                |  Home
+            #conferences-global
+              li
+                a(href='/user/submissions')
+                  i.icon.icon-envelope
+                  |  Submissions
+              li
+                a(href='/user/reviews')
+                  i.icon.icon-folder-close
+                  |  Reviews
+              li
+                a(href='/user/comments')
+                  i.icon.icon-comment
+                  |  Comments
+            #conferences-user
+              li(ng-repeat='conference in conferences')
+                a(href='/conferences/{{conference.id}}')
+                  i.icon.icon-folder-open
+                  |  {{conference.shortName}}
             #new-conference
               a.new-conference(href='#edit-conference-modal', role='button', data-toggle='modal') + New conference
         .span9.columns.content

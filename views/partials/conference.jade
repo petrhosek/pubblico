@@ -10,7 +10,8 @@
           ul.dropdown-menu.pull-right(role='menu', aria-labelledby="dropdownMenu")
             li
               a(href='/conferences/{{conference.id}}/bids') Bid on submissions
-      p {{conference.description}}
+      .conference-description
+        p {{conference.description}}
     //-#new-clip
       //-input(placeholder='Add a submission...', type='text')
   #conference-container
@@ -31,6 +32,11 @@
           //-a.edit-submission(ng-click='showSubmission(submission.title)', role='button', data-toggle='modal') Edit
           //-a.edit-submission(ng-click='edit(submission.title)', role='button', data-toggle='modal', modal='edit-submission-modal') Edit
           p.meta
+            span.review
+              a(title='Review')
+                i.icon.icon-inbox
+                | Add review
+            |  · 
             span.comment
               a(title='Comment')
                 i.icon.icon-comment
