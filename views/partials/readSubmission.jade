@@ -1,15 +1,15 @@
 #submission
   .clearfix
-    #submission-info
-      span.submission-date
-        abbr.timeago(title='{{submission.submitted}}')
-          {{submission.submitted | ago}}
-      h3.name {{submission.title}}
-      ul.submission-authors.unstyled
-        li(ng-repeat='author in submission.authors')
-          a(href='/user/{{author.email}}') {{author.name.first}} {{author.name.last}}
-          | 
-          span {{author.affiliation}}
+    .submission-header
+      h3
+        span.pull-right &#35;{{submission.id}}
+        | {{submission.title}}
+      p by 
+        strong(ng-repeat='author in submission.authors')
+          a(href='/user/{{author.email}}')
+            img.avatar(width=16, height=16, title='{{author.name.first}} {{author.name.last}}', ng-src='http://www.gravatar.com/avatar/{{author.email|md5}}?s=16')
+            | {{author.name.first}} {{author.name.last}}
+        time(datetime='{{submission.submitted}}')  {{submission.submitted | ago}}
       p.abstract
         {{submission.abstract}}
     #submission-container

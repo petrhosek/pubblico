@@ -12,8 +12,8 @@
               a(href='/conferences/{{conference.id}}/bids') Bid on submissions
       .conference-description
         p {{conference.description}}
-    #new-submission
-      button.btn.edit-submission(ng-click='edit({})', role='button', data-toggle='modal', modalx='edit-submission-modal') Edit
+      #new-submission
+        button.btn.edit-submission(ng-click='edit({})', role='button', data-toggle='modal', modalx='edit-submission-modal') Submit a paper
     //-#new-clip
       //-input(placeholder='Add a submission...', type='text')
   #conference-container

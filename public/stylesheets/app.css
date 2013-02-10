@@ -43,21 +43,26 @@ body{background:url("../../img/base-noise.jpeg") #f1f2f3;color:#333;font-family:
 #submission-list li.submission .meta{position:absolute;right:0;bottom:0;font-size:12px;color:#666;font-weight:normal;}
 #submission-list li.submission .meta a{color:#444;font-weight:normal}
 .comment{cursor:pointer}
-#submission #submission-info{padding:15px 30px 0;color:#666;position:relative;}
-#submission #submission-info h3{color:#333;line-height:1.3;margin-bottom:10px;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;white-space:nowrap}
-#submission #submission-info .submission-date{font-weight:normal;font-size:12px;color:#888;position:absolute;top:0;right:0}
+#submission{font-size:14px;padding:15px 30px;position:relative;}
+#submission .submission-header{color:#666;position:relative;}
+#submission .submission-header h3{color:#333;line-height:1.3;margin-bottom:0;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;white-space:nowrap;}
+#submission .submission-header h3 span{color:#888;font-weight:normal}
+#submission .submission-header p{color:#888;font-size:14px;font-weight:300;}
+#submission .submission-header p a{color:#333;font-weight:200}
+#submission .submission-header p .avatar{-webkit-border-radius:14px;border-radius:14px;height:14px;margin-top:0;width:14px}
+#submission .submission-header .submission-date{font-weight:normal;font-size:12px;color:#888;position:absolute;top:0;right:0}
 #submission #submission-container{position:relative;min-height:420px;}
 #submission #submission-container #reviews-list{background:#fff;border-top:1px solid #dedede;display:block;font-size:1.15em;margin:0;margin-top:10px;padding:0;position:relative}
 #submission #submission-container #comments-list{background:#fff;border-top:1px solid #dedede;display:block;font-size:1.15em;margin:0;margin-top:10px;padding:0;position:relative}
 .avatar{margin-top:-2px;width:32px;height:32px;-webkit-border-radius:32px;border-radius:32px}
-.review-timeline{padding:10px 30px}
+.review-timeline{padding:10px 0}
 .review-list{border-top:1px solid #dedede;display:block;margin:0;margin-top:10px;padding:0;position:relative;}
 .review-list .review{padding:15px 10px;border-bottom:1px solid #e8eaed;}
 .review-list .review .review-content{color:#444;min-height:35px;margin-left:40px;position:relative;}
 .review-list .review .review-content .review-date{font-weight:normal;font-size:12px;color:#888;position:absolute;top:0;right:0}
 .review-list .review p.meta{margin-top:5px;line-height:20px;font-size:12px;color:#666;font-weight:normal;}
 .review-list .review p.meta a{color:#444;font-weight:normal}
-.comment-timeline{padding:10px 30px}
+.comment-timeline{padding:10px 0}
 .comment-list{border-top:1px solid #dedede;display:block;margin:0;margin-top:10px;padding:0;position:relative;}
 .comment-list .comment{padding:15px 10px;position:relative;border-bottom:1px solid #e8eaed;}
 .comment-list .comment .comment-content{color:#444;min-height:35px;position:relative;}
