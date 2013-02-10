@@ -33,17 +33,14 @@ body{background:url("../../img/base-noise.jpeg") #f1f2f3;color:#333;font-family:
 #submission-list{background:#fff;border-top:1px solid #dedede;display:block;font-size:1.15em;margin:0;margin-top:10px;padding:0;position:relative;}
 #submission-list li.submission{font-size:14px;padding:18px 30px;position:relative;border-bottom:1px solid #e8eaed;}
 #submission-list li.submission .submission-number{color:#888;width:35px}
-#submission-list li.submission .submission-content{color:#444;margin-left:35px;min-height:30px;position:relative;text-decoration:none;}
-#submission-list li.submission .submission-content .submission-date{font-weight:normal;font-size:12px;color:#888;position:absolute;top:0;right:0}
-#submission-list li.submission .submission-content .submission-title{color:#222;display:block;font-size:16px;font-weight:bold;line-height:1.3;margin:0;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;width:600px;white-space:nowrap;}
-#submission-list li.submission .submission-content .submission-title .tag{margin:0 2px}
+#submission-list li.submission .submission-content{color:#444;margin-left:35px;min-height:30px;position:relative;}
+#submission-list li.submission .submission-content h3{display:block;font-size:16px;line-height:1.3;margin:0;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;width:600px;white-space:nowrap;}
+#submission-list li.submission .submission-content h3 a{color:#222;font-weight:bold}
+#submission-list li.submission .submission-content h3 .tag{margin:0 2px}
 #submission-list li.submission .submission-content p{color:#888;font-size:14px;font-weight:300;}
 #submission-list li.submission .submission-content p a{color:#333;font-weight:200}
 #submission-list li.submission .submission-content p .avatar{-webkit-border-radius:14px;border-radius:14px;height:14px;margin-top:0;width:14px}
-#submission-list li.submission .submission-content .submission-authors{font-weight:normal;padding-top:16px;}
-#submission-list li.submission .submission-content .submission-authors .author{font-size:14px;margin:0 5px;}
-#submission-list li.submission .submission-content .submission-authors .author .avatar{margin-right:5px}
-#submission-list li.submission .meta{font-size:12px;color:#666;font-weight:normal;}
+#submission-list li.submission .meta{position:absolute;right:0;bottom:0;font-size:12px;color:#666;font-weight:normal;}
 #submission-list li.submission .meta a{color:#444;font-weight:normal}
 .comment{cursor:pointer}
 #submission #submission-info{padding:15px 30px 0;color:#666;position:relative;}
