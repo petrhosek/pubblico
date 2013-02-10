@@ -106,6 +106,8 @@ app.get('/api/v1/conferences/:conference/submissions', api.submissions);
 
 // app.resource('posts', require('/resources/posts'), {base: '/api/v1/'});
 
+app.post('/api/v1/conferences', api.createConference);
+
 // Redirect all others to the index
 
 app.get('*', routes.index);

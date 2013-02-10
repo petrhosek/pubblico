@@ -8,17 +8,17 @@ var Conference = require('../models/Conference.js');
  * List of (public) conferences.
  */
 exports.conferences = (function (req, res) {
-    Conference.find({}, 'id shortName longName dates', function (err, confs) {
-        if (err) {
-            console.log(err);
-            res.send(500, {error:'Unable to load list of conferences'});
-        } else {
-            console.log(confs);
-            // It doesn't make sense to send null when
-            // no public conferences is completely valid
-            res.json((confs !== null) ? confs : []);
-        }
-    });
+  Conference.find({}, 'id shortName longName dates', function (err, confs) {
+    if (err) {
+      console.log(err);
+      res.send(500, {error:'Unable to load list of conferences'});
+    } else {
+      console.log(confs);
+      // It doesn't make sense to send null when
+      // no public conferences is completely valid
+      res.json((confs !== null) ? confs : []);
+    }
+  });
 });
 
 
@@ -111,3 +111,27 @@ exports.submissions = (function(req, res) {
     //   });
     //});
 });
+
+/**
+ * POST /api/v1/conferences
+ */
+exports.createConference = (function (req, res) {
+  console.log(req.body);
+  User.findOne({ email:req.body.user }, function (err, user) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(user);
+      var conf = new Conference({shortName: req.body.shortName, steering: [ user._id ]});
+      console.log(conf);
+      conf.save(function (err) {
+        if (err) console.log(err);
+      });
+      res.send(201);
+    }
+  });
+});
+
+/*
+ *
+ */
