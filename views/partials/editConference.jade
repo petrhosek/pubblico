@@ -1,23 +1,24 @@
 #edit-conference-modal.modal.hide.fade
-  .modal-header
+  .content
     button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
     h3 Create a new conference
-  .modal-body
     form
       label(for='conference-create-name')
         strong Conference name
       input#conference-create-name.input-xxlarge(placeholder='Conference on Computing', type='text', value)
       .dates
-        label(for='conference-date-from')
-          strong From
-        input#conference-date-from(type='date', name='from')
-        label(for='conference-date-to')
-          strong To
-      input#conference-date-to(type='date')
+        .date
+          label(for='conference-date-from')
+            strong From
+          input#conference-date-from(type='date', name='from')
+        .date
+          label(for='conference-date-to')
+            strong To
+          input#conference-date-to(type='date')
       label(for='conference-create-description', name='to')
         strong Description
         |  (optional)
-      textarea#conference-create-description.input-xxlarge
+      textarea#conference-create-description
       .controls
         label.radio(for='conference-create-privacy-public')
           input#conference-create-privacy-public(type='radio', name='conference-sharing', value='public', checked='checked')
@@ -31,8 +32,8 @@
           br
           | Only invited can submit
       .actions
-        input.btn.btn-blue(type='submit', value='Create conference')
-        input.btn.btn-white(type='reset', value='Cancel')
-  .modal-footer
-    a.btn(href='#') Close
-    a.btn.btn-primary(href='#') Create conference
+        input.btn.btn-primary(type='submit', value='Create conference')
+        a
+        input.btn(type='reset', value='Cancel')
+    //-a.btn(href='#') Close
+    //-a.btn.btn-primary(href='#') Create conference

@@ -18,13 +18,13 @@
         .review-list
           .review(ng-repeat='review in submission.reviews')
             span.pull-left
-              a(href='/user/{{review.reviewer.user}}')
-                img.avatar(width=32, height=32, title='petrh', src='http://www.gravatar.com/avatar/6da8d726322a53e094431a1b0d589601?s=32') petrh
+              a(href='/user/{{review.reviewer.email}}')
+                img.avatar(width=32, height=32, title='{{review.reviewer.name.first}}', ng-src='http://www.gravatar.com/avatar/{{review.reviewer.email|md5}}?s=32')
             .review-content
               span.review-date
                 abbr.timeago(title='{{review.reviewed}}')
                   {{review.reviewed | ago}}
-              .summary
+              .summar
                 {{review.summary}}
               .strengths
                 i.icon.icon-plus-sign

@@ -40,13 +40,14 @@ angular.module('pubblicoApp').controller('ConferenceDetailCtrl', ['$scope', '$ro
   $scope.submissions = Submission.query({conference: $routeParams.id});
   /*$scope.showSubmission = function(id) {
     $scope.$parent.$broadcast('show', id);
-  };
+  };*/
   $scope.edit = function(submission) {
     $scope.submission = submission;
+    $scope.$parent.$broadcast('show', submission);
   };
-  $scope.$on(edit, function() {
+  $scope.$on('edit', function() {
     $scope.$broadcast('show', $scope.submission);
-  });*/
+  });
 }]);
 
 angular.module('pubblicoApp').controller('SubmissionsListCtrl', ['$scope', 'Submission',
@@ -69,15 +70,17 @@ angular.module('pubblicoApp').controller('SubmissionsReadCtrl', ['$scope', '$rou
 
 angular.module('pubblicoApp').controller('SubmissionsEditCtrl', ['$scope', '$location', '$routeParams', 'Submission',
     function ($scope, $location, $routeParams, Submission) {
-  /*$scope.$on('show', function($_scope, id) {
+  $scope.$on('show', function($_scope, submission) {
+    $scope.submission = submission;
     $scope.modalShown = true;
-  });*/
+  });
   $scope.submission = Submission.get({conference: $routeParams.conference, submission: $routeParams.submission});
   $scope.edit = function() {
     $scope.submission.$save();
   };
-  /*$scope.close = function() {
-  };*/
+  $scope.close = function() {
+    $scope.modalShown = false;
+  };
 }]);
 
 angular.module('pubblicoApp').controller('SubmissionsDeleteCtrl', ['$scope', '$location', '$routeParams', 'Submission',

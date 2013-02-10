@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pubblicoApp', ['pubblicoApp.filters', 'pubblicoApp.services', 'pubblicoApp.directives']).
+angular.module('pubblicoApp', ['pubblicoApp.filters', 'pubblicoApp.services', 'pubblicoApp.directives', 'ui.bootstrap']).
   config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {

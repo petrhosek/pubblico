@@ -24,7 +24,7 @@ block body
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown')
             span.username
-              //-gravatar(data-email='email', data-size='32', data-rating='pg', data-default='404')
+              //-div(gravatar-image, data-email='user.email', data-size='32', data-rating='pg', data-default='404')
               img.avatar(width=32, height=32, title='petrh', src='http://www.gravatar.com/avatar/6da8d726322a53e094431a1b0d589601?s=32') petrh
             b.caret
           ul.dropdown-menu
@@ -66,7 +66,7 @@ block body
         .span9.columns.content
           .ng-view
   include partials/editConference
-  //-include partials/editSubmission
+  include partials/editSubmission
   //- In production use: script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js')
   script(src='lib/angular/angular.js')
   script(src='lib/angular/angular-bootstrap.js')
@@ -74,8 +74,10 @@ block body
   script(src='lib/jquery/jquery-1.9.0.js')
   script(src='lib/bootstrap/bootstrap.js')
   script(src='lib/moment/moment.js')
+  script(src='lib/md5/md5.js')
   script(src='js/app.js')
   script(src='js/services/services.js')
   script(src='js/controllers/controllers.js')
   script(src='js/filters/filters.js')
   script(src='js/directives/directives.js')
+  script(src='js/directives/modal.js')

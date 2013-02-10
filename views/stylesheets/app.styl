@@ -375,6 +375,13 @@ body {
   }
 }
 
+.avatar {
+  margin-top: -6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+}
+
 .review-timeline {
   padding: 10px 30px;
 }
@@ -390,13 +397,6 @@ body {
   .review {
     padding: 15px 10px;
     border-bottom: 1px solid #e8eaed;
-
-    .avatar {
-      margin-top: -6px;
-      width: 32px;
-      height: 32px;
-      border-radius: 32px;
-    }
 
     .review-content {
       color: #444;
@@ -478,12 +478,37 @@ body {
 
 #edit-conference-modal {
   .content {
-    height: 360px;
+    height: 460px;
     padding: 30px 40px;
     width: 500px;
+
+    h3 {
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 15px;
+    }
+
+    form {
+      input[type="text"] {
+        padding: 5px 10px;
+        width: 480px;
+      }
+      input[type="date"] {
+        padding: 5px 10px;
+      }
+      textarea {
+        height: 60px;
+        padding: 5px 10px;
+        width: 480px;
+      }
+    }
   }
   .dates {
-
+    .date {
+      float: left;
+      &:first-child {
+        width: 50%;
+      }
+    }
   }
   .controls {
     height: 35px;
@@ -495,6 +520,56 @@ body {
       &:first-child {
         width: 50%;
       }
+    }
+  }
+  .actions {
+    border-top: 1px solid #ddd;
+    padding: 15px 5px;
+
+    input.btn {
+      float: right;
+      margin: 5px 0 5px 10px;
+    }
+  }
+}
+
+#edit-submission-modal {
+  .content {
+    height: 460px;
+    padding: 30px 40px;
+    width: 560px;
+
+    h3 {
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 15px;
+    }
+
+    .submission-content {
+      margin-left: 45px;
+    }
+
+    form {
+      input[type="text"] {
+        padding: 5px 10px;
+        width: 480px;
+      }
+      input[type="date"] {
+        padding: 5px 10px;
+      }
+      textarea {
+        height: 250px;
+        padding: 5px 10px;
+        width: 480px;
+      }
+    }
+  }
+  .actions {
+    border-top: 1px solid #ddd;
+    padding: 15px 5px;
+
+    input.btn {
+      float: right;
+      margin: 5px 0 5px 10px;
     }
   }
 }

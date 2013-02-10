@@ -27,10 +27,8 @@
               a(href='/user/{{author.email}}') {{author.name.first}} {{author.name.last}}
               | 
               span {{author.affiliation}}
-          a.edit-submission(href='/conferences/{{conference.id}}/submissions/{{submission.id}}') Edit
-          //-div(ng-include, src='partials/editSubmission')
-          //-a.edit-submission(ng-click='showSubmission(submission.title)', role='button', data-toggle='modal') Edit
-          //-a.edit-submission(ng-click='edit(submission.title)', role='button', data-toggle='modal', modal='edit-submission-modal') Edit
+          //-a.edit-submission(ng-click='edit(submission)', href='#edit-submission-modal', role='button', data-toggle='modal') Edit
+          button.btn.edit-submission(ng-click='edit(submission)', role='button', data-toggle='modal', modalx='edit-submission-modal') Edit
           p.meta
             span.review
               a(title='Review')
