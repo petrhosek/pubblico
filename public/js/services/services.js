@@ -1,6 +1,18 @@
 'use strict';
 
 angular.module('pubblicoApp.services', ['ngResource']).
+  factory('User', ['$http', function($http) {
+    return {
+      attach: function(scope) {
+        $http.get('/passport').success(function(data, status) {
+          scope.user = data.user;
+          if (scope.user) {
+            scope.user.display = scope.user.name || scope.user.email;
+          }
+        });
+      }
+    };
+  }]).
   factory('Conference', ['$resource', function($resource) {
     return $resource('http://petrh.apiary.io/api/v1/conferences/:conference', {}, {
       index: { method: 'JSONP', isArray: true }

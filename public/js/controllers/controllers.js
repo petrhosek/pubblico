@@ -11,15 +11,9 @@ angular.module('pubblicoApp').controller('MenuSearchCtrl', ['$scope', '$location
   }
 }]);
 
-angular.module('pubblicoApp').controller('MenuUserCtrl', ['$scope', '$http',
-    function ($scope, $http) {
-  $http.get('/passport').success(function(data, status, headers, config) {
-    $scope.user = data.user;
-    if ($scope.user) {
-      $scope.user.display = $scope.user.name || $scope.user.email;
-      //$scope.user.avatar = ;
-    }
-  });
+angular.module('pubblicoApp').controller('MenuUserCtrl', ['$scope', 'User',
+    function ($scope, User) {
+  User.attach($scope);
 }]);
 
 angular.module('pubblicoApp').controller('SearchCtrl', ['$scope', 'Conference',
