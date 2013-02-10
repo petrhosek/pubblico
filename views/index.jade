@@ -33,14 +33,14 @@ block body
             li
               a(href='/settings') Settings
             li
-              a(href='/logout') Logout
+              a(href='/logout', target='_self') Logout
   #body.container
     .clearfix
       .row
         .span3.columns#sidebar(ng-controller='SidebarConferenceCtrl')
           ul#conferences.unstyled
             li
-              a(href='/home')
+              a(href='/home', target='_self')
                 i.icon.icon-home
                 |  Home
             #conferences-global

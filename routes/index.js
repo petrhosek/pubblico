@@ -35,6 +35,14 @@ exports.passport = function (req, res) {
 };
 
 /*
+ * GET /logout
+ */
+exports.logout = function (req, res) {
+  req.logout();
+  res.redirect('/home');
+};
+
+/*
  * POST /signup
  */
 exports.signup = function (req, res) {

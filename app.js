@@ -90,6 +90,7 @@ app.get('/', routes.index);
 app.get('/home', routes.home);
 app.get('/partials/:name', routes.partials);
 app.get('/passport', routes.passport);
+app.get('/logout', routes.logout);
 
 app.post('/signup', routes.signup);
 app.post('/login', passport.authenticate('local', { successRedirect: '/',
