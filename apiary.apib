@@ -293,3 +293,30 @@ GET /api/v1/conferences/{conference}/submissions/{submission}
         "commented": "2013-02-06T10:18:28.531Z"
     }]
 }
+
+--
+Events resources
+The following is a section of resources related to activity streams
+--
+List all submissions of a conference.
+GET /api/v1/events
+< 200
+< Content-Type: application/json
+[{
+    "type": "Submission",
+    "public": true,
+    "conference": {
+        "id": "iccsw13",
+        "shortName": "ICCSW'13",
+        "longName": "2013 Imperial College Computing Student Workshop"
+    },
+    "author": {
+        "affiliation" : "Imperial College London",
+        "email" : "petrhosek@gmail.com",
+        "name": {
+            "last": "Petr",
+            "first": "Hoek"
+        }
+    },
+    "createdat": "2013-02-10T17:00:00.000Z"
+}]
