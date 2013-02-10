@@ -10,6 +10,11 @@ angular.module('pubblicoApp.services', ['ngResource']).
             scope.user.display = scope.user.name || scope.user.email;
           }
         });
+      },
+      get: function(callback) {
+        $http.get('/passport').success(function(data) {
+          callback(data);
+        });
       }
     };
   }]).

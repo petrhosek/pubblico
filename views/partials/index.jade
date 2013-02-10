@@ -1,26 +1,10 @@
-#submissions
+#dashboard
   .clearfix
-    .list-info
-      h3.name Submissions
-      ul.list-actions.unstyled
-        li.btn-group
-          a.btn.dropdown-toggle(href='#', data-toggle='dropdown')
-            b.caret
-          ul.dropdown-menu.pull-right
-    #new-clip
-      input(placeholder='Add a submission...', type='text')
-  .submissions-container
-    ul#submissions-list.unstyled(ng-repeat='submission in submissions')
-      li.submission
-        .submission-content
-          a(href='#') {{submission.title}}
-          p {{submission.authors}}
-//-p You have {{submissions.length}} submissions
-//-div(ng-repeat='submission in submissions')
-//-  h3 {{submission.title}}
-//-  div {{submission.abstract}}
-//-  a(href='readPost/{{post.id}}') More
-//-  | -
-//-  a(href='editPost/{{post.id}}') Edit
-//-  | -
-//-  a(href='deletePost/{{post.id}}') Delete
+    .event(ng-repeat='event in events')
+      .event-content
+        strong
+          a(href='/user/{{event.author.email}}')
+            img.avatar(width=16, height=16, title='{{event.author.name.first}} {{event.author.name.last}}', ng-src='http://www.gravatar.com/avatar/{{event.author.email|md5}}?s=16')
+            | {{event.author.name.first}} {{event.author.name.last}}
+        | submitted to {{event.conference.longName}}
+        time(datetime='{{event.createdat}}')  {{event.createdat | ago}}

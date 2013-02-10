@@ -5,7 +5,7 @@ angular.module('pubblicoApp', ['pubblicoApp.filters', 'pubblicoApp.services', 'p
     $routeProvider.
       when('/', {
         templateUrl: 'partials/index',
-        controller: 'SubmissionsListCtrl'
+        controller: 'HomeCtrl'
       }).
       when('/search', {
         templateUrl: 'partials/search',

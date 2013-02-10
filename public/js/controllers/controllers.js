@@ -22,6 +22,17 @@ angular.module('pubblicoApp').controller('SearchCtrl', ['$scope', 'Conference',
   $scope.conferences = Conference.query({query: $scope.query});
 }]);
 
+angular.module('pubblicoApp').controller('HomeCtrl', ['$scope', '$http', 'Conference',
+    function ($scope, $http, Conference) {
+  $http.jsonp('http://petrh.apiary.io/api/v1/events').
+    success(function(data, status, headers, config) {
+      $scope.events = data;
+    }).
+    error(function(data, status, headers, config) {
+      console.log(data);
+    });
+}]);
+
 angular.module('pubblicoApp').controller('SidebarConferenceCtrl', ['$scope', 'Conference',
     function ($scope, Conference) {
   $scope.conferences = Conference.query();
@@ -56,11 +67,20 @@ angular.module('pubblicoApp').controller('SubmissionsListCtrl', ['$scope', 'Subm
   //$scope.submissions = Submission.query();
 }]);
 
-angular.module('pubblicoApp').controller('SubmissionsNewCtrl', ['$scope', '$location', 'Submission',
-    function ($scope, $location, Submission) {
-  $scope.submission = {};
+angular.module('pubblicoApp').controller('SubmissionsNewCtrl', ['$scope', '$location', 'User', 'Submission',
+    function ($scope, $location, User, Submission) {
+  $scope.$on('show', function($_scope, submission) {
+    $scope.submission = {};
+    User.get(function(user) {
+      $scope.submission.author = user;
+    });
+    $scope.modalShown = true;
+  });
   $scope.submit = function() {
     Submission.save($scope.submission);
+  };
+  $scope.close = function() {
+    $scope.modalShown = false;
   };
 }]);
 

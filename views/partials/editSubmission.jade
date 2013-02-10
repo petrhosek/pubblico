@@ -1,12 +1,12 @@
-#edit-submission-modal(modal='modalShown', ng-controller='SubmissionsEditCtrl')
+#edit-submission-modal(modal='modalShown', ng-controller='SubmissionsNewCtrl')
   .content
     button.close(type='button', data-dismiss='modal', aria-hidden='true', ng-click='close()') &times;
     h3 Create a new submission
     span.pull-left
-      img.avatar(width=32, height=32, title='{{review.reviewer.name.first}}', ng-src='http://www.gravatar.com/avatar/{{review.reviewer.email|md5}}?s=32')
+      img.avatar(width=32, height=32, title='{{submission.author.name}}', ng-src='http://www.gravatar.com/avatar/{{submission.author.email|md5}}?s=32')
     form(name='newSubmissionForm', ng-submit='submit()')
       input#submission-title.input-block-level(ng-model='submission.title', type='text', placeholder='Your title goes here', required)
-      input#submission-author.input-block-level(ng-model='submission.author', type='text', placeholder='Other authors')
+      input#submission-author.input-block-level(ng-model='submission.authors', type='text', placeholder='Other authors')
       textarea#submission-abstract.input-block-level(placeholder='The abstract', required) {{submission.abstract}}
     .actions
       button.btn.btn-primary(type='submit') Save submission
