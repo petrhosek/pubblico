@@ -98,10 +98,6 @@ body {
   width: 32px;
   height: 32px;
   margin-right: 10px;
-  -webkit-border-radius: 32px;
-  -moz-border-radius: 32px;
-  -ms-border-radius: 32px;
-  -o-border-radius: 32px;
   border-radius: 32px;
 }
 
@@ -248,9 +244,9 @@ body {
 
 #submission-list {
   background: #fff;
+  border-top: 1px solid #dedede;
   display: block;
   font-size: 1.15em;
-  list-style: none;
   margin: 0;
   margin-top: 10px;
   padding: 0;
@@ -357,9 +353,9 @@ body {
 
     #reviews-list {
       background: #fff;
+      border-top: 1px solid #dedede;
       display: block;
       font-size: 1.15em;
-      list-style: none;
       margin: 0;
       margin-top: 10px;
       padding: 0;
@@ -368,9 +364,9 @@ body {
 
     #comments-list {
       background: #fff;
+      border-top: 1px solid #dedede;
       display: block;
       font-size: 1.15em;
-      list-style: none;
       margin: 0;
       margin-top: 10px;
       padding: 0;
@@ -379,27 +375,34 @@ body {
   }
 }
 
-#review-list {
-  background: #fff;
+.review-timeline {
+  padding: 10px 30px;
+}
+
+.review-list {
+  border-top: 1px solid #dedede;
   display: block;
-  font-size: 1.15em;
-  list-style: none;
   margin: 0;
   margin-top: 10px;
   padding: 0;
   position: relative;
 
-  li.review {
-    padding: 18px 30px;
-    position: relative;
+  .review {
+    padding: 15px 10px;
     border-bottom: 1px solid #e8eaed;
+
+    .avatar {
+      margin-top: -6px;
+      width: 32px;
+      height: 32px;
+      border-radius: 32px;
+    }
 
     .review-content {
       color: #444;
-      font-weight: bold;
-      min-height: 38px;
+      min-height: 35px;
+      margin-left: 40px;
       position: relative;
-      text-decoration: none;
 
       .review-date {
         font-weight: normal;
@@ -426,27 +429,27 @@ body {
   }
 }
 
-#comment-list {
-  background: #fff;
+.comment-timeline {
+  padding: 10px 30px;
+}
+
+.comment-list {
+  border-top: 1px solid #dedede;
   display: block;
-  font-size: 1.15em;
-  list-style: none;
   margin: 0;
   margin-top: 10px;
   padding: 0;
   position: relative;
 
-  li.comment {
-    padding: 18px 30px;
+  .comment {
+    padding: 15px 10px;
     position: relative;
     border-bottom: 1px solid #e8eaed;
 
     .comment-content {
       color: #444;
-      font-weight: bold;
-      min-height: 38px;
+      min-height: 35px;
       position: relative;
-      text-decoration: none;
 
       .comment-date {
         font-weight: normal;

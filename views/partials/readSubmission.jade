@@ -1,0 +1,43 @@
+#submission
+  .clearfix
+    #submission-info
+      span.submission-date
+        abbr.timeago(title='{{submission.submitted}}')
+          {{submission.submitted | ago}}
+      h3.name {{submission.title}}
+      ul.submission-authors.unstyled
+        li(ng-repeat='author in submission.authors')
+          a(href='/user/{{author.email}}') {{author.name.first}} {{author.name.last}}
+          | 
+          span {{author.affiliation}}
+      p.abstract
+        {{submission.abstract}}
+    #submission-container
+      .review-timeline
+        h4 Reviews
+        .review-list
+          .review(ng-repeat='review in submission.reviews')
+            span.pull-left
+              a(href='/user/{{review.reviewer.user}}')
+                img.avatar(width=32, height=32, title='petrh', src='http://www.gravatar.com/avatar/6da8d726322a53e094431a1b0d589601?s=32') petrh
+            .review-content
+              span.review-date
+                abbr.timeago(title='{{review.reviewed}}')
+                  {{review.reviewed | ago}}
+              .summary
+                {{review.summary}}
+              .strengths
+                i.icon.icon-plus-sign
+                |  {{review.strengths}}
+              .weaknesses
+                i.icon.icon-minus-sign
+                |  {{review.weaknesses}}
+      .comment-timeline
+        h4 Comments
+        .comment-list
+          .comment(ng-repeat='comment in submission.comments')
+            .comment-content
+              span.comment-date
+                abbr.timeago(title='{{comment.commented}}')
+                  {{comment.commented | ago}}
+              p {{comment.comment}}

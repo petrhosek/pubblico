@@ -10,7 +10,7 @@ body{background:url("../../img/base-noise.jpeg") #f1f2f3;color:#333;font-family:
 .topbar .nav > li > a{font-weight:normal;}
 .topbar .nav > li > a:hover{background-color:#fff;color:#111}
 .topbar .nav .nav-conferences a{color:#444;font-weight:bold}
-.topbar .avatar{margin-top:-6px;width:32px;height:32px;margin-right:10px;-webkit-border-radius:32px;-moz-border-radius:32px;-ms-border-radius:32px;-o-border-radius:32px;-webkit-border-radius:32px;border-radius:32px}
+.topbar .avatar{margin-top:-6px;width:32px;height:32px;margin-right:10px;-webkit-border-radius:32px;border-radius:32px}
 .topbar .nav .dropdown{padding:15px;-webkit-transition:.15s border-color linear;-moz-transition:.15s border-color linear;border-left:1px solid transparent;border-right:1px solid transparent;background:transparent;max-width:180px}
 .topbar .nav a.dropdown-toggle{padding:0;background:transparent}
 .topbar #search-form{margin:0;float:left;padding:10px 0 10px 130px}
@@ -30,7 +30,7 @@ body{background:url("../../img/base-noise.jpeg") #f1f2f3;color:#333;font-family:
 #conference-info .conference-actions{float:right}
 #conference-info .conference-description{clear:both}
 #conference #conference-container{position:relative;min-height:420px}
-#submission-list{background:#fff;display:block;font-size:1.15em;list-style:none;margin:0;margin-top:10px;padding:0;position:relative;}
+#submission-list{background:#fff;border-top:1px solid #dedede;display:block;font-size:1.15em;margin:0;margin-top:10px;padding:0;position:relative;}
 #submission-list li.submission{padding:18px 30px;position:relative;border-bottom:1px solid #e8eaed;}
 #submission-list li.submission .submission-content{color:#444;font-weight:bold;min-height:38px;position:relative;text-decoration:none;}
 #submission-list li.submission .submission-content .submission-date{font-weight:normal;font-size:12px;color:#888;position:absolute;top:0;right:0}
@@ -46,20 +46,23 @@ body{background:url("../../img/base-noise.jpeg") #f1f2f3;color:#333;font-family:
 #submission #submission-info h3{color:#333;line-height:1.3;margin-bottom:10px;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;white-space:nowrap}
 #submission #submission-info .submission-date{font-weight:normal;font-size:12px;color:#888;position:absolute;top:0;right:0}
 #submission #submission-container{position:relative;min-height:420px;}
-#submission #submission-container #reviews-list{background:#fff;display:block;font-size:1.15em;list-style:none;margin:0;margin-top:10px;padding:0;position:relative}
-#submission #submission-container #comments-list{background:#fff;display:block;font-size:1.15em;list-style:none;margin:0;margin-top:10px;padding:0;position:relative}
-#review-list{background:#fff;display:block;font-size:1.15em;list-style:none;margin:0;margin-top:10px;padding:0;position:relative;}
-#review-list li.review{padding:18px 30px;position:relative;border-bottom:1px solid #e8eaed;}
-#review-list li.review .review-content{color:#444;font-weight:bold;min-height:38px;position:relative;text-decoration:none;}
-#review-list li.review .review-content .review-date{font-weight:normal;font-size:12px;color:#888;position:absolute;top:0;right:0}
-#review-list li.review p.meta{margin-top:5px;line-height:20px;font-size:12px;color:#666;font-weight:normal;}
-#review-list li.review p.meta a{color:#444;font-weight:normal}
-#comment-list{background:#fff;display:block;font-size:1.15em;list-style:none;margin:0;margin-top:10px;padding:0;position:relative;}
-#comment-list li.comment{padding:18px 30px;position:relative;border-bottom:1px solid #e8eaed;}
-#comment-list li.comment .comment-content{color:#444;font-weight:bold;min-height:38px;position:relative;text-decoration:none;}
-#comment-list li.comment .comment-content .comment-date{font-weight:normal;font-size:12px;color:#888;position:absolute;top:0;right:0}
-#comment-list li.comment p.meta{margin-top:5px;line-height:20px;font-size:12px;color:#666;font-weight:normal;}
-#comment-list li.comment p.meta a{color:#444;font-weight:normal}
+#submission #submission-container #reviews-list{background:#fff;border-top:1px solid #dedede;display:block;font-size:1.15em;margin:0;margin-top:10px;padding:0;position:relative}
+#submission #submission-container #comments-list{background:#fff;border-top:1px solid #dedede;display:block;font-size:1.15em;margin:0;margin-top:10px;padding:0;position:relative}
+.review-timeline{padding:10px 30px}
+.review-list{border-top:1px solid #dedede;display:block;margin:0;margin-top:10px;padding:0;position:relative;}
+.review-list .review{padding:15px 10px;border-bottom:1px solid #e8eaed;}
+.review-list .review .avatar{margin-top:-6px;width:32px;height:32px;-webkit-border-radius:32px;border-radius:32px}
+.review-list .review .review-content{color:#444;min-height:35px;margin-left:40px;position:relative;}
+.review-list .review .review-content .review-date{font-weight:normal;font-size:12px;color:#888;position:absolute;top:0;right:0}
+.review-list .review p.meta{margin-top:5px;line-height:20px;font-size:12px;color:#666;font-weight:normal;}
+.review-list .review p.meta a{color:#444;font-weight:normal}
+.comment-timeline{padding:10px 30px}
+.comment-list{border-top:1px solid #dedede;display:block;margin:0;margin-top:10px;padding:0;position:relative;}
+.comment-list .comment{padding:15px 10px;position:relative;border-bottom:1px solid #e8eaed;}
+.comment-list .comment .comment-content{color:#444;min-height:35px;position:relative;}
+.comment-list .comment .comment-content .comment-date{font-weight:normal;font-size:12px;color:#888;position:absolute;top:0;right:0}
+.comment-list .comment p.meta{margin-top:5px;line-height:20px;font-size:12px;color:#666;font-weight:normal;}
+.comment-list .comment p.meta a{color:#444;font-weight:normal}
 #edit-conference-modal .content{height:360px;padding:30px 40px;width:500px}
 #edit-conference-modal .controls{height:35px;padding:20px 0;}
 #edit-conference-modal .controls label{float:left;}
