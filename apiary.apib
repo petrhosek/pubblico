@@ -142,6 +142,10 @@ GET /api/v1/conferences/{conference}/submissions/{submission}
     "reviews": [{
         "reviewer": {
             "email": "reviewer@example.edu",
+            "name": {
+                "first": "Name",
+                "last": "Surname"
+            }
         },
         "score": 0.8,
         "qualification": 0.6,
@@ -151,7 +155,11 @@ GET /api/v1/conferences/{conference}/submissions/{submission}
         "reviewed": "2013-02-05T10:18:28.531Z"
     }, {
         "reviewer": {
-            "user": "user1"  
+            "email": "reviewer2@example.edu",
+            "name": {
+                "first": "Name",
+                "last": "Surname"
+            }
         },
         "score": 0.6,
         "qualification": 0.75,
