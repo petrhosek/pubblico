@@ -19,6 +19,10 @@ html
       link(rel='apple-touch-icon-precomposed', sizes='72x72', href='/img/apple-touch-icon-72-precomposed.png')
       link(rel='apple-touch-icon-precomposed', href='/img/apple-touch-icon-57-precomposed.png')
   body.home
+    for msg in error
+      .alert.alert-error
+        button.close(type='button', data-dismiss='alert') &times;
+        strong= msg
     nav.navbar.navbar-static-top
       .navbar-inner
         .container

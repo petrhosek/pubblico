@@ -8,7 +8,9 @@ exports.index = function (req, res) {
 };
 
 exports.home = function (req, res) {
-  res.render('home');
+  var messages = { error: req.flash('error'), warning: req.flash('warning'), info: req.flash('info') };
+  console.log(messages);
+  res.render('home', messages);
 };
 
 /*

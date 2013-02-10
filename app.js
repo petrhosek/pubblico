@@ -3,6 +3,7 @@
  */
 
 var express = require('express')
+  , flash = require('connect-flash')
   , manifest = require('./package.json')
   , mongoose = require('mongoose')
   , bcrypt = require('bcrypt')
@@ -42,6 +43,7 @@ app.configure(function() {
   app.use(express.session({secret: process.env.SESSION_SECRET || 'shhhhhhh!'}));
   app.use(passport.initialize());
   app.use(passport.session());
+  app.use(flash());
   app.use(express.static(__dirname + '/public'));
   app.use(app.router);
 });
@@ -94,7 +96,8 @@ app.get('/logout', routes.logout);
 
 app.post('/signup', routes.signup);
 app.post('/login', passport.authenticate('local', { successRedirect: '/',
-                                                    failureRedirect: '/login' }));
+                                                    failureRedirect: '/home',
+                                                    failureFlash: true }));
 
 /*
  * JSON API
