@@ -73,11 +73,11 @@ passport.use(new LocalStrategy({
   }));
 
 passport.serializeUser(function(user, done) {
-  done(null, user._id);
+  done(null, {id: user._id, email: user.email, name: user.name, affiliation: user.affiliation});
 });
 
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
+passport.deserializeUser(function(user, done) {
+  User.findById(user.id, function(err, user) {
     done(err, user);
   });
 });
@@ -89,7 +89,9 @@ passport.deserializeUser(function(id, done) {
 app.get('/', routes.index);
 app.get('/home', routes.home);
 app.get('/partials/:name', routes.partials);
+app.get('/passport', routes.passport);
 
+app.post('/signup', routes.signup);
 app.post('/login', passport.authenticate('local', { successRedirect: '/',
                                                     failureRedirect: '/login' }));
 

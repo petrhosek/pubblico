@@ -28,10 +28,16 @@ exports.directives = function (req, res) {
 };
 
 /*
+ * GET /passport
+ */
+exports.passport = function (req, res) {
+  res.json(req.session.passport);
+};
+
+/*
  * POST /signup
  */
 exports.signup = function (req, res) {
-//{login: req.params.login, email: req.params.email, hash: bcryp
   User.register(req.body, function(err, user) {
     if (err) console.log(err);
     res.redirect('/');
