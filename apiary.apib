@@ -122,11 +122,39 @@ GET /api/v1/conferences/{conference}/submissions/all
     }]
 }]
 
-Get all submissions of a user for a conference (suppose I am lone@user.edu)
-GET /api/v1/conferences/{conference}/submissions/user
+List all submissions of a conference.
+GET /api/v1/conferences/{conference}/submissions
 < 200
 < Content-Type: application/json
-[]{
+[{
+    "id": 1,
+    "title": "Towards the Improvement of Randomized Algorithms",
+    "abstract": "The implications of permutable communication have been far-reaching and pervasive. This follows from the understanding of agents [21]. Given the current status of distributed algorithms, electrical engineers compellingly desire the evaluation of IPv7. In order to realize this goal, we describe a novel system for the construction of systems (Ecchymosis), showing that spreadsheets and RPCs [21] are generally incompatible.",
+    "authors": [{
+        "affiliation" : "University of Example",
+        "email" : "example@example.edu",
+        "name": {
+            "last": "LAST",
+            "first": "FIRST"
+        }
+    },{
+        "affiliation" : "University of Exampl22222e",
+        "email" : "example2@example.edu",
+        "name": {
+            "last": "LAST222",
+            "first": "FIRST11111"
+        }
+    }],
+    "sid": "sid1",
+    "submitted": "2013-02-04T10:18:28.531Z",
+    "lastUpdated": "2013-02-04T10:18:28.531Z",
+    "tags": ["network", "agents"],
+    "bids": [{
+        "user": "user1",
+        "selection": "conflict"
+    }]
+},
+{
     "id": 2,
     "title": "The Effect of Electronic Modalities on Cryptography",
     "abstract": "Cyberneticists agree that compact methodologies are an interesting new topic in the field of e-voting technology, and cyberinformaticians concur. In fact, few end-users would disagree with the study of XML. in this position paper we show not only that compilers and symmetric encryption are often incompatible, but that the same is true for web browsers [3].",
@@ -139,6 +167,48 @@ GET /api/v1/conferences/{conference}/submissions/user
         }
     }],
     "sid": "sid2",
+    "submitted": "2013-02-07T12:53:22.531Z",
+    "lastUpdated": "2013-02-08T15:22:56.531Z",
+    "tags": ["cryptography", "modality"],
+    "bids": [{
+        "user": "nickng@doc.ic.ac.uk",
+        "selection": "yes"
+    },{
+        "email": "petrh@example.com",
+        "selection": "no"
+    },{
+        "user": "florian@example.edu",
+        "selection": "maybe"
+    }]
+}]
+
+Add a new submission.
+POST /api/v1/conferences/{conference}/submissions
+{
+    "title": "The Effect of Electronic Modalities on Cryptography",
+    "abstract": "Cyberneticists agree that compact methodologies are an interesting new topic in the field of e-voting technology, and cyberinformaticians concur. In fact, few end-users would disagree with the study of XML. in this position paper we show not only that compilers and symmetric encryption are often incompatible, but that the same is true for web browsers [3].",
+    "authors" : [ "lone@user.edu" ],
+    "sid": 42
+}
+< 201
+
+Get all submissions of a user for a conference (suppose I am lone@user.edu)
+GET /api/v1/conferences/{conference}/submissions/user
+< 200
+< Content-Type: application/json
+[{
+    "id": 2,
+    "title": "The Effect of Electronic Modalities on Cryptography",
+    "abstract": "Cyberneticists agree that compact methodologies are an interesting new topic in the field of e-voting technology, and cyberinformaticians concur. In fact, few end-users would disagree with the study of XML. in this position paper we show not only that compilers and symmetric encryption are often incompatible, but that the same is true for web browsers [3].",
+    "authors": [{
+        "affiliation" : "University of Wolf",
+        "email": "lone@user.edu",
+        "name" : {
+            "first" : "lone",
+            "last" : "user"
+        }
+    }],
+    "sid": 42,
     "submitted": "2013-02-07T12:53:22.531Z",
     "lastUpdated": "2013-02-08T15:22:56.531Z",
     "tags": ["cryptography", "modality"],
@@ -221,40 +291,3 @@ GET /api/v1/conferences/{conference}/submissions/{submission}
         "commented": "2013-02-06T10:18:28.531Z"
     }]
 }
-
-List all submitters and intended submitters.
-GET /api/v1/conferences/{conference}/submitters
-< 200
-< Content-Type: application/json
-[{
-    "affiliation": "Example University",
-    "email": "foobar@example.edu",
-    "name": {
-        "first": "Foo",
-        "last": "Bar"
-    },
-    "active": true
-},
-{
-    "email": "organiser@example.edu",
-    "affiliation": "Example University",
-    "name": {
-        "first": "Organ",
-        "last": "Iser"
-    },
-    "active": false
-}]
-
-List of conference organisers for users to find the contacts of a conference.
-GET /api/v1/conferences/{conference}/organisers
-< 200
-< Content-Type: application/json
-[{
-    "email": "foobar@example.edu",
-    "affiliation": "Example University",
-    "name": {
-        "first": "Foo",
-        "last": "Bar"
-    },
-    "active": true
-}]
