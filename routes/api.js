@@ -8,19 +8,19 @@ exports.submissions = (function(req, res) {
             console.log(err);
             res.send(500, {error:'Unable to load submissions'});
         } else {
-            if (conf === null) {
-                console.log(err);
-                res.send(404, {error:'No matching conference'});
-            } else {
+            if (conf !== null) {
                 var sub_details = [];
                 for (s in conf.submissions){
                     sub_details[s] = {
-                        'title': c.submissions[s]['title'],
-                        'abstract': c.submissions[s]['abstract']
+                        'title': conf.submissions[s]['title'],
+                        'abstract': conf.submissions[s]['abstract']
                     };
                 }
                 console.log(sub_details)
                 res.json(sub_details);
+            } else {
+                console.log(err);
+                res.send(404, {error:'No matching conference'});
             }
         }
     });
@@ -37,8 +37,13 @@ exports.conference = (function (req, res) {
             console.log(err);
             res.send(500, {error:'Unable to load conference'});
         } else {
-            console.log(conf_metadata);
-            res.json(conf_metadata);
+            if (conf !== null) {
+                console.log(conf_metadata);
+                res.json(conf_metadata);
+            } else {
+                console.log(err);
+                res.send(404, {error:'No matching conference'});
+            }
         }
     });
 });

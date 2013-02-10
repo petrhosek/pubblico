@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/pubblico');
+mongoose.connect('mongodb://localhost/pubblico-dev');
 //var user1 = new User({name: {first: 'Rares', last: 'Turliuc'}, login:'rturliuc' });
 //console.log(user1.login);	
 //user1.save(function(err, user1){
