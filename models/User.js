@@ -9,7 +9,6 @@ var UserSchema = new mongoose.Schema({
       , last: String
     }
   , affiliation: String
-  , roles: [String]
   , submissions: [{ type: mongoose.Schema.ObjectId, ref: 'Submission' }]
   , active: Boolean
 });

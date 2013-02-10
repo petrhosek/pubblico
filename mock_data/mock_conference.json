@@ -4,6 +4,7 @@
 	"shortName":"iccsw12",
 	"submissions":[
 		{
+			"sid":"sub1",
 			"title":"paper1",
 			"abstract": "abstract1",
 			"reviews": [
@@ -34,6 +35,7 @@
 			]
 		},
 		{
+			"sid":"sub2",
 			"title":"paper2",
 			"abstract":"abstract2",
 			"reviews": [

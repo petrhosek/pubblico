@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var ConferenceSchema = new mongoose.Schema({
-    shortName: String
+	shortName: {type: String, unique: true}
   , longName: String
   , description: String
   , dates: {
@@ -19,7 +19,8 @@ var ConferenceSchema = new mongoose.Schema({
 });
 
 var SubmissionSchema = new mongoose.Schema({
-    title: String
+    sid: String
+  , title: String
   , abstract: String
   , authors: [{ type: mongoose.Schema.ObjectId, ref: 'User' }]
   , bids: [{user:{ type: mongoose.Schema.ObjectId, ref: 'User' }, selection: {type: String, enum:['yes', 'no', 'maybe', 'conflict']}}]
