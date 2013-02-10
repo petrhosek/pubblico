@@ -183,20 +183,21 @@ GET /api/v1/conferences/{conference}/submitters
 < Content-Type: application/json
 [{
     "affiliation": "Example University",
-    "emails": [ "foobar@example.edu" ],
+    "email": "foobar@example.edu",
     "name": {
         "first": "Foo",
         "last": "Bar"
-    }
+    },
+    "active": true
 },
 {
-    "emails": [ "organiser@example.edu", "organiser@example.ac.uk" ],
+    "email": "organiser@example.edu",
     "affiliation": "Example University",
     "name": {
         "first": "Organ",
         "last": "Iser"
     },
-    "active": true
+    "active": false
 }]
 
 List of conference organisers for users to find the contacts of a conference.
@@ -204,7 +205,7 @@ GET /api/v1/conferences/{conference}/organisers
 < 200
 < Content-Type: application/json
 [{
-    "emails": [ "foobar@example.edu" ],
+    "email": "foobar@example.edu",
     "affiliation": "Example University",
     "name": {
         "first": "Foo",
