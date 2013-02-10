@@ -73,7 +73,7 @@ passport.use(new LocalStrategy({
   }));
 
 passport.serializeUser(function(user, done) {
-  done(null, {id: user._id, email: user.email, name: user.name, affiliation: user.affiliation});
+  done(null, {id: user._id, email: user.email, name: user.name.full, affiliation: user.affiliation});
 });
 
 passport.deserializeUser(function(user, done) {
