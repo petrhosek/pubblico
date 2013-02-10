@@ -8,15 +8,20 @@ exports.submissions = (function(req, res) {
             console.log(err);
             res.send(500, {error:'Unable to load submissions'});
         } else {
-            var sub_details = [];
-            for (s in c.submissions){
-                sub_details[s] = {
-                    'title': c.submissions[s]['title'],
-                    'abstract': c.submissions[s]['abstract']
-                };
+            if (conf === null) {
+                console.log(err);
+                res.send(404, {error:'No matching conference'});
+            } else {
+                var sub_details = [];
+                for (s in conf.submissions){
+                    sub_details[s] = {
+                        'title': c.submissions[s]['title'],
+                        'abstract': c.submissions[s]['abstract']
+                    };
+                }
+                console.log(sub_details)
+                res.json(sub_details);
             }
-            console.log(sub_details)
-            res.json(sub_details);
         }
     });
 });
