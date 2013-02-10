@@ -1,0 +1,24 @@
+#edit-submission-modal(modal='modalShown', ng-controller='SubmissionsEditCtrl')
+  .content
+    button.close(type='button', data-dismiss='modal', aria-hidden='true', ng-click='close()') &times;
+    h3 Create a new submission
+    span.pull-left
+      img.avatar(width=32, height=32, title='{{review.reviewer.name.first}}', ng-src='http://www.gravatar.com/avatar/{{review.reviewer.email|md5}}?s=32')
+    .submission-content
+      form.edit-submission
+        input.submission-title(type='text', placeholder='Your title goes here', value='{{submission.title}}')
+        input.submission-author(type='text', placeholder='Other authors')
+        textarea.submission-abstract(placeholder='The abstract') {{submission.abstract}}
+    .actions
+      button.btn.btn-primary(type='submit') Save changes
+      a.cancel(data-dismiss='modal', ng-click='close()') Cancel
+//-#conference
+  //-.clearfix
+    //-#conference-info
+      //-form.edit-submission
+        //-input.submission-title(type='text', placeholder='Your title goes here', value='{{submission.title}}')
+        //-input.submission-author(type='text', placeholder='Other authors')
+        //-textarea.submission-abstract(placeholder='The abstract') {{submission.abstract}}
+        //-.actions
+          //-button.btn Save Changes
+          //-a.cancel(href='#') Cancel

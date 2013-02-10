@@ -75,11 +75,12 @@ body{background:url("../../img/base-noise.jpeg") #f1f2f3;color:#333;font-family:
 #edit-conference-modal .controls label:first-child{width:50%}
 #edit-conference-modal .actions{border-top:1px solid #ddd;padding:15px 5px;}
 #edit-conference-modal .actions input.btn{float:right;margin:5px 0 5px 10px}
-#edit-submission-modal .content{height:460px;padding:30px 40px;width:560px;}
+#edit-submission-modal .content{height:500px;padding:30px 40px;width:560px;}
 #edit-submission-modal .content h3{border-bottom:1px solid #ddd;margin-bottom:15px}
 #edit-submission-modal .content .submission-content{margin-left:45px}
 #edit-submission-modal .content form input[type="text"]{padding:5px 10px;width:480px}
 #edit-submission-modal .content form input[type="date"]{padding:5px 10px}
 #edit-submission-modal .content form textarea{height:250px;padding:5px 10px;width:480px}
 #edit-submission-modal .actions{border-top:1px solid #ddd;padding:15px 5px;}
-#edit-submission-modal .actions input.btn{float:right;margin:5px 0 5px 10px}
+#edit-submission-modal .actions button{float:right}
+#edit-submission-modal .actions a{line-height:1.8}
