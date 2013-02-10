@@ -32,16 +32,7 @@ html
                     btn.close(type='button', data-dismiss='modal', aria-hidden='true') x
                     h3 Sign up to Pubblico
                   .modal-body
-                    form(action='/signup', method='POST', autocomplete='off')
-                      fieldset
-                        h5 With email
-                        input#id_username(type='text', name='username', maxlength='30', placeholder='Username')
-                        input#id_email(type='text', name='email', maxlength='30', placeholder='Email')
-                        input#id_password(type='password', name='password', placeholder='Password')
-                        input.btn(type='submit', value='Sign up')
-                      a(href='/login/')
-                        span Already have an account?
-                         Log in
+                    include partials/signup
                 a(href='#signup-modal', role='button', data-toggle='modal') Sign up
               li
                 #login-modal.modal.hide.fade(role='dialog', aria-labelledby='login-modallabel', aria-hidden='true')
@@ -49,16 +40,16 @@ html
                     btn.close(type='button', data-dismiss='modal', aria-hidden='true') x
                     h3 Log in to Pubblico
                   .modal-body
-                    form(action='/login', method='POST', autocomplete='off')
+                    form.home-signup.pull-right(action='/login', method='POST', autocomplete='off')
                       fieldset
                         h5 With Pubblico account
                         input#id_username.input-xlarge(type='text', name='email', maxlength='30', placeholder='Email')
                         input#id_password.input-xlarge(type='password', name='password', placeholder='Password')
-                        input.btn(type='submit', value='Log in')
+                        button.btn.btn-primary.btn-large(type='submit') Sign in
                       a(href='/accounts/password/reset')
                         span Forgot password?
                        · 
-                      a(href='/signup/')
+                      a(href='/home')
                         span Sign up to Pubblico
                 a(href='#login-modal', role='button', data-toggle='modal') Sign in
             ul.nav
@@ -70,24 +61,7 @@ html
       #landing
     .container
       .jumbotron
-        //-h1 Your conferences
-        //-  small All in one place, organized and managed
-        //-p
-        //-  a.btn.btn-primary.btn-large(href='/signup/', data-link='modal', data-target='#signup-modal') Sign up for free
-        form.home-signup.pull-right(action='/signup', method='POST', autocomplete='off')
-          fieldset
-            input#id_email(type='text', name='email', maxlength='30', placeholder='Your email')
-            input#id_affiliation(type='text', name='affiliation', maxlength='30', placeholder='Provide affiliation')
-            input#id_password(type='password', name='password', placeholder='Create a password')
-            span.help-block Use at least one number and at least 7 characters.
-            p.signup-agreement
-              small
-                | By clicking on "Sign up for free" below, you agree to the 
-                a(href='http://pubbli.co.uk/terms', target='_blank') Terms of Service
-                |  and the 
-                a(href='http://pubbli.co.uk/privacy', target="_blank") Privacy Policy
-                | .
-            button.btn.btn-primary.btn-large(type='submit') Sign up for free
+        include partials/signup
     .container
       section.teasers
         .row

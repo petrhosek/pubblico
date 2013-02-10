@@ -1,0 +1,14 @@
+form.home-signup.pull-right(action='/signup', method='POST', autocomplete='off')
+  fieldset
+    input#id_email(type='text', name='email', maxlength='30', placeholder='Your email')
+    input#id_affiliation(type='text', name='affiliation', maxlength='30', placeholder='Provide affiliation')
+    input#id_password(type='password', name='password', placeholder='Create a password')
+    span.help-block Use at least one number and at least 7 characters.
+    p.signup-agreement
+      small
+        | By clicking on "Sign up for free" below, you agree to the
+        a(href='http://pubbli.co.uk/terms', target='_blank') Terms of Service
+        |  and the
+        a(href='http://pubbli.co.uk/privacy', target="_blank") Privacy Policy
+        | .
+    button.btn.btn-primary.btn-large(type='submit') Sign up for free
