@@ -3,11 +3,17 @@ h3.name Bid on submissions for "{{conference.longName}}"
   ul#submission-list.unstyled(ng-repeat='submission in submissions')
     li.submission
       .submission-content
-        a(href='#') {{submission.title}}
-        p {{submission.authors}}
-        ul
-          li(ng-repeat='tag in submission.tags')
-            span.label.label-info {{tag}}
+        span.submission-date
+          abbr.timeago(title='{{submission.submitted}}')
+            {{submission.submitted | ago}}
+        a.submission-title(href='/conferences/{{conference.id}}/submissions/{{submission.id}}') {{submission.title}}
+        ul.submission-authors.unstyled
+          li.author(ng-repeat='author in submission.authors')
+            a(href='/user/{{author.email}}') {{author.name.first}} {{author.name.last}}
+            | 
+            span {{author.affiliation}}
+        .tags
+          span.tag.label.label-info(ng-repeat='tag in submission.tags') {{tag}}
         p {{submission.abstract}}
       .submission-actions
         form.form-inline
