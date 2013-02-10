@@ -32,7 +32,8 @@ app.configure(function() {
       return stylus(str)
         .set('filename', path)
         .set('compress', true)
-        .use(nib());
+        .use(nib())
+        .import('nib');
     }
   }));
   app.use(express.cookieParser());

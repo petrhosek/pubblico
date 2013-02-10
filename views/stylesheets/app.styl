@@ -60,28 +60,37 @@ body {
 
 .topbar a {
   color: #777;
-  text-shadow: 0 1px 0 white;
   font-weight: bold;
+  text-shadow: 0 1px 0 white;
 }
 
 .topbar .nav {
-  float: left;
+  float: right;
   margin: 0;
-  height: 53px;
-}
+  height: 55px;
 
-.topbar .nav li {
-  display: inline-block;
-  line-height: 24px;
-  vertical-align: middle;
-  margin-left: 20px;
-  height: 23px;
-  padding: 15px 0;
-}
+  > li {
+    display: inline-block;
+    line-height: 24px;
+    vertical-align: middle;
+    margin-left: 20px;
+    height: 24px;
+    padding: 16px 0;
 
-.topbar .nav li a {
-  font-weight: normal;
-  background-color: none;
+    > a {
+      font-weight: normal;
+
+      &:hover {
+        background-color: #fff;
+        color: #111;
+      }
+    }
+  }
+
+  .nav-conferences a {
+    color: #444;
+    font-weight: bold;
+  }
 }
 
 .topbar .avatar {
@@ -111,38 +120,19 @@ body {
   background: transparent;
 }
 
-.topbar form {
+.topbar #search-form {
   margin: 0;
   float: left;
-  padding: 11px 0 10px 30px;
+  padding: 10px 0 10px 130px;
 }
 
 .topbar form input#search {
   background: #fff;
-  color: #000;
-  width: 220px;
-  border: 1px solid #ccc;
-  padding: 6px 10px;
-  line-height: 1.2;
-  -webkit-box-shadow: 0 1px 0 white;
-}
-
-.topbar .nav .nav-conferences {
-  padding-right: 21px;
-  padding-left: 25px;
-  margin-right: 5px;
-  margin-left: 50px;
-  text-align: center;
-  width: 54px;
-}
-
-.topbar .nav .nav-conferences a {
-  font-weight: bold;
-  color: #444;
-}
-
-.topbar .nav.nav-user {
-  float: right;
+  color: #777;
+  font-size: 13px;
+  width: 300px;
+  padding: 5px 10px;
+  box-shadow: 0 1px 0 white;
 }
 
 #body {

@@ -14,14 +14,11 @@ block body
             ul
               li
                 Notification
-      ul.nav.nav-conferences
-        li.nav-conferences
-          a(href='/conferences/') Conferences
       form#search-form(action='/search', method='get', ng-controller='MenuSearchCtrl')
         input#search(type='text', placeholder='Search conferences...', name='q)
-      ul.nav.nav-user(ng-controller='MenuUserCtrl')
-        li
-          a(href='/tools') Tools
+      ul.nav(ng-controller='MenuUserCtrl')
+        li.nav-conferences
+          a(href='/conferences/') Conferences
         li
           a(href='/feedback') Feedback
         li.dropdown
@@ -51,7 +48,7 @@ block body
                   |  Submissions
               li
                 a(href='/user/reviews')
-                  i.icon.icon-folder-close
+                  i.icon.icon-inbox
                   |  Reviews
               li
                 a(href='/user/comments')

@@ -1,33 +1,32 @@
 body{background:url("../../img/base-noise.jpeg") #f1f2f3;color:#333;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.4em;padding-bottom:20px}
-.topbar{background:url("../../img/header-bg.png") repeat-x #fff;color:#343434;height:55px;position:relative;z-index:1;font-size:13px;border-bottom:1px solid rgba(0,0,0,0.15);box-shadow:0 1px 0 #eee inset}
-.topbar .brand{float:left;width:140px;height:40px;background:url("../img/pubblico.png") 0 10px no-repeat;text-indent:-9999cm;margin-top:3px;background-size:120px}
-.topbar .brand a{width:140px;height:40px;margin:0;padding:0;opacity:1;display:block}
+.topbar{background:url("../../img/header-bg.png") repeat-x #fff;color:#343434;height:55px;position:relative;z-index:1;font-size:13px;border-bottom:1px solid rgba(0,0,0,0.15);-webkit-box-shadow:0 1px 0 #eee inset;box-shadow:0 1px 0 #eee inset}
+.topbar .brand{float:left;width:140px;height:40px;background:url("../img/pubblico.png") 0 10px no-repeat;text-indent:-9999cm;margin-top:3px;-webkit-background-size:120px;-moz-background-size:120px;background-size:120px}
+.topbar .brand a{width:140px;height:40px;margin:0;padding:0;opacity:1;-ms-filter:none;filter:none;display:block}
 #notifications{position:relative;float:left}
-#notifications .notifications-link{width:24px;height:24px;background:#eee;display:block;position:absolute;top:13px;left:3px;border-radius:2px;border:1px solid #ccc;background:url("../../img/icon-notifications.png") center -20px no-repeat #fff;box-shadow:0 1px 0 #eee}
-.topbar a{color:#777;text-shadow:0 1px 0 #fff;font-weight:bold}
-.topbar .nav{float:left;margin:0;height:53px}
-.topbar .nav li{display:inline-block;line-height:24px;vertical-align:middle;margin-left:20px;height:23px;padding:15px 0}
-.topbar .nav li a{font-weight:normal;background-color:none}
-.topbar .avatar{margin-top:-6px;width:32px;height:32px;margin-right:10px;-webkit-border-radius:32px;-moz-border-radius:32px;-ms-border-radius:32px;-o-border-radius:32px;border-radius:32px}
+#notifications .notifications-link{width:24px;height:24px;background:#eee;display:block;position:absolute;top:13px;left:3px;-webkit-border-radius:2px;border-radius:2px;border:1px solid #ccc;background:url("../../img/icon-notifications.png") center -20px no-repeat #fff;-webkit-box-shadow:0 1px 0 #eee;box-shadow:0 1px 0 #eee}
+.topbar a{color:#777;font-weight:bold;text-shadow:0 1px 0 #fff}
+.topbar .nav{float:right;margin:0;height:55px;}
+.topbar .nav > li{display:inline-block;line-height:24px;vertical-align:middle;margin-left:20px;height:24px;padding:16px 0;}
+.topbar .nav > li > a{font-weight:normal;}
+.topbar .nav > li > a:hover{background-color:#fff;color:#111}
+.topbar .nav .nav-conferences a{color:#444;font-weight:bold}
+.topbar .avatar{margin-top:-6px;width:32px;height:32px;margin-right:10px;-webkit-border-radius:32px;-moz-border-radius:32px;-ms-border-radius:32px;-o-border-radius:32px;-webkit-border-radius:32px;border-radius:32px}
 .topbar .nav .dropdown{padding:15px;-webkit-transition:.15s border-color linear;-moz-transition:.15s border-color linear;border-left:1px solid transparent;border-right:1px solid transparent;background:transparent;max-width:180px}
 .topbar .nav a.dropdown-toggle{padding:0;background:transparent}
-.topbar form{margin:0;float:left;padding:11px 0 10px 30px}
-.topbar form input#search{background:#fff;color:#000;width:220px;border:1px solid #ccc;padding:6px 10px;line-height:1.2;-webkit-box-shadow:0 1px 0 #fff}
-.topbar .nav .nav-conferences{padding-right:21px;padding-left:25px;margin-right:5px;margin-left:50px;text-align:center;width:54px}
-.topbar .nav .nav-conferences a{font-weight:bold;color:#444}
-.topbar .nav.nav-user{float:right}
+.topbar #search-form{margin:0;float:left;padding:10px 0 10px 130px}
+.topbar form input#search{background:#fff;color:#777;font-size:13px;width:300px;padding:5px 10px;-webkit-box-shadow:0 1px 0 #fff;box-shadow:0 1px 0 #fff}
 #body{margin-top:20px}
 #sidebar{margin-right:-30px;padding-top:20px;}
 #sidebar #conferences{font-weight:600;font-size:14px;height:100%;overflow:auto;padding:0 0 10px 0;top:0;-webkit-transition:background .15s linear;}
-#sidebar #conferences li a{color:#666;font-weight:normal;padding:4px 20px 4px 10px;text-shadow:0 1px 0 #fff;margin:2px 0 2px 0;height:18px;display:block;font-size:13px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;font-weight:bold;}
+#sidebar #conferences li a{color:#666;font-weight:normal;padding:4px 20px 4px 10px;text-shadow:0 1px 0 #fff;margin:2px 0 2px 0;height:18px;display:block;font-size:13px;-o-text-overflow:ellipsis;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;font-weight:bold;}
 #sidebar #conferences li a:hover{color:#333;text-decoration:none}
-#sidebar #conferences #conferences-global{border-top:1px solid #ddd;box-shadow:0 1px 0 #fff inset;margin-top:5px;padding:5px 0}
-#sidebar #conferences #conferences-user{border-top:1px solid #ddd;box-shadow:0 1px 0 #fff inset;margin-top:5px;padding:5px 0}
+#sidebar #conferences #conferences-global{border-top:1px solid #ddd;-webkit-box-shadow:0 1px 0 #fff inset;box-shadow:0 1px 0 #fff inset;margin-top:5px;padding:5px 0}
+#sidebar #conferences #conferences-user{border-top:1px solid #ddd;-webkit-box-shadow:0 1px 0 #fff inset;box-shadow:0 1px 0 #fff inset;margin-top:5px;padding:5px 0}
 #sidebar #conferences #new-conference{margin-top:5px;}
-#sidebar #conferences #new-conference .new-conference{background:rgba(0,0,0,0.05);border-radius:5px;padding:5px 10px;color:#555;font-size:12px;text-shadow:0 1px 0 #fff}
-.content{background:#fff;border-radius:2px;box-shadow:0 1px 2px #ccc;min-height:400px;-webkit-border-radius:2px;-moz-border-radius:2px;-o-border-radius:2px}
+#sidebar #conferences #new-conference .new-conference{background:rgba(0,0,0,0.05);-webkit-border-radius:5px;border-radius:5px;padding:5px 10px;color:#555;font-size:12px;text-shadow:0 1px 0 #fff}
+.content{background:#fff;-webkit-border-radius:2px;border-radius:2px;-webkit-box-shadow:0 1px 2px #ccc;box-shadow:0 1px 2px #ccc;min-height:400px;-webkit-border-radius:2px;-moz-border-radius:2px;-o-border-radius:2px}
 #conference-info{padding:15px 30px 0;color:#666;}
-#conference-info h3{color:#2e3c3f;float:left;line-height:1.3;margin-bottom:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#conference-info h3{color:#2e3c3f;float:left;line-height:1.3;margin-bottom:10px;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;white-space:nowrap}
 #conference-info .conference-actions{float:right}
 #conference-info .conference-description{clear:both}
 #conference #conference-container{position:relative;min-height:420px}
@@ -35,7 +34,7 @@ body{background:url("../../img/base-noise.jpeg") #f1f2f3;color:#333;font-family:
 #submission-list li.submission{padding:18px 30px;position:relative;border-bottom:1px solid #e8eaed;}
 #submission-list li.submission .submission-content{color:#444;font-weight:bold;min-height:38px;position:relative;text-decoration:none;}
 #submission-list li.submission .submission-content .submission-date{font-weight:normal;font-size:12px;color:#888;position:absolute;top:0;right:0}
-#submission-list li.submission .submission-content .submission-title{color:#222;display:block;font-size:16px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;width:520px;white-space:nowrap}
+#submission-list li.submission .submission-content .submission-title{color:#222;display:block;font-size:16px;line-height:1.3;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;width:520px;white-space:nowrap}
 #submission-list li.submission .submission-content .submission-authors{font-weight:normal;padding-top:5px;}
 #submission-list li.submission .submission-content .submission-authors .author{font-size:14px;line-height:1.3}
 #submission-list li.submission .submission-content .tags{overflow:hidden;}
@@ -44,7 +43,7 @@ body{background:url("../../img/base-noise.jpeg") #f1f2f3;color:#333;font-family:
 #submission-list li.submission p.meta a{color:#444;font-weight:normal}
 .comment{cursor:pointer}
 #submission #submission-info{padding:15px 30px 0;color:#666;position:relative;}
-#submission #submission-info h3{color:#333;line-height:1.3;margin-bottom:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#submission #submission-info h3{color:#333;line-height:1.3;margin-bottom:10px;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;white-space:nowrap}
 #submission #submission-info .submission-date{font-weight:normal;font-size:12px;color:#888;position:absolute;top:0;right:0}
 #submission #submission-container{position:relative;min-height:420px;}
 #submission #submission-container #reviews-list{background:#fff;display:block;font-size:1.15em;list-style:none;margin:0;margin-top:10px;padding:0;position:relative}
