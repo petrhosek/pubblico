@@ -22,6 +22,7 @@ exports.conferences = (function (req, res) {
 });
 
 
+
 /*
  * GET /api/v1/conferences/:conference
  * Metadata of the specified conference.
@@ -46,71 +47,55 @@ exports.conference = (function (req, res) {
 
 
 /*
- * GET /api/v1/conferences/:conference/submissions
+ * POST /api/v1/conference/:conference/submissions/user
+ */
+exports.submission_new = (function (req, res) {
+  console.log('submission_new conference='+req.params.conference);
+
+  User.findOne({ email: req.body.user }, function (err, user) {
+    if (err) {
+      console.log(err);
+      res.send(500, {error:'Cannot find user'});
+    } else {
+      var newSubmission = {
+        title: req.body.title,
+        abstract: req.body.abstract,
+        sid: 'sid1',
+        authors: [ user._id ]
+      }
+      Conference.update({ shortName: req.params.conference }, { $push: { submissions: newSubmission } }, function (err, count) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(count);
+          res.send(201);
+        }
+      })
+    }
+  });
+
+});
+
+
+/*
+ * GET /api/v1/conferences/:conference/submissions/all
  * List of submissions associated to the specified conference.
  */
-exports.submissions = (function(req, res) {
-    console.log('submissions conference='+req.params.conference);
-    //http.get(, function (res) {
-    //    var data = '';
-    //    res.on('data', function (chunk) {
-    //        data += chunk;
-    //    });
-    //    res.on('end', function (err) {
-    //        var user = JSON.parse(data);
-              var user = { user: { "id": "51170296db4da2b663000003", "email": "florian.rathgeber@gmail.com", "name": {}, "affiliation": "IC"}};
-    //        if (user != {}) {
-                Conference.findOne({"shortName":req.params.conference},'submissions pc steering', function (err, conf) {
-                    console.log(conf);
-                    if (err) {
-                        console.log(err);
-                        res.send(500, {error:'Unable to load submissions'});
-                    } else {
-                        if (conf !== null) {
+exports.submissions_all = (function(req, res) {
+  console.log('submissions_all conference='+req.params.conference);
 
-                            // Admin of a conference gets full list
-                            if (conf.pc.indexOf(user.user.id) > -1 || conf.steering.indexOf(user.user.id) > -1) {
-                                var sub_details = [];
-                                for (s in conf.submissions){
-                                    sub_details[s] = {
-                                        'title': conf.submissions[s]['title'],
-                                        'abstract': conf.submissions[s]['abstract']
-                                    };
-                                }
-                                console.log(sub_details)
-                                res.json(sub_details);
-                            } else { // Normal user, filter on author
-                                var userEmail = user.user.email;
-                                var sub_details = [];
-                                for (s in conf.submissions) {
-                                    for (a in s.authors) { // XXX We don't have authors field yet
-                                        if (a.email == userEmail) {
-                                            sub_details[s] = {
-                                                'title': conf.submissions[s]['title'],
-                                                'abstract': conf.submissions[s]['abstract']
-                                            }
-                                        }
-                                    }
-                                }
-                                console.log(sub_details)
-                                res.json(sub_details);
-                            }
-                        } else {
-                            console.log(err);
-                            res.send(404, {error:'No matching conference'});
-                        }
-                    }
-                });
-    //       } else {
-    //           res.send(401, {error:'Not logged in'});
-    //       }
-    //   });
-    //   res.on('error', function (err) {
-    //       console.log(err);
-    //       res.send(500, {error:'Cannot authenticate'})
-    //   });
-    //});
+  Conference.findOne({ "shortName":req.params.conference },'submissions', function (err, conf) {
+      console.log(conf);
+      if (err) {
+        console.log(err);
+        res.send(500, {error:'Unable to load submissions'});
+      } else {
+        console.log(conf);
+        res.json(conf.submissions);
+      }
+    });
 });
+
 
 /**
  * POST /api/v1/conferences
@@ -131,7 +116,3 @@ exports.createConference = (function (req, res) {
     }
   });
 });
-
-/*
- *
- */

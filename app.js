@@ -102,11 +102,12 @@ app.post('/login', passport.authenticate('local', { successRedirect: '/',
 
 app.get('/api/v1/conferences', api.conferences);
 app.get('/api/v1/conferences/:conference', api.conference);
-app.get('/api/v1/conferences/:conference/submissions', api.submissions);
+app.get('/api/v1/conferences/:conference/submissions/all', api.submissions_all);
 
 // app.resource('posts', require('/resources/posts'), {base: '/api/v1/'});
 
 app.post('/api/v1/conferences', api.createConference);
+app.post('/api/v1/conferences/:conference/submissions/user', api.submission_new);
 
 // Redirect all others to the index
 
