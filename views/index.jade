@@ -25,7 +25,7 @@ block body
           a.dropdown-toggle(href='#', data-toggle='dropdown')
             span.username
               //-div(gravatar-image, data-email='user.email', data-size='32', data-rating='pg', data-default='404')
-              img.avatar(width=32, height=32, title='petrh', src='http://www.gravatar.com/avatar/6da8d726322a53e094431a1b0d589601?s=32') petrh
+              img.avatar(width=32, height=32, title='{{user.display}}', src='http://www.gravatar.com/avatar/{{user.email|md5}}?s=32') petrh
             b.caret
           ul.dropdown-menu
             li
