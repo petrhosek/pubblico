@@ -35,6 +35,17 @@ GET /api/v1/conferences
     "description": "The 2013 Imperial College Computing Student Workshop aims to provide an international forum for doctoral students to discuss a range of topics that are current in computer science research. The workshop welcomes all research students in the field of computer science."
 }]
 
+Create new conference.
+POST /api/v1/conferences
+{
+    "id": "iccsw14",
+    "shortName": "ICCSW'14",
+    "longName": "2014 Imperial College Computing Student Workshop",
+    "dates": { "from": "2014-09-25T9:00:00.000Z", "to": "2014-09-26T17:00:00.000Z" },
+    "description": "The 2014 Imperial College Computing Student Workshop aims to provide an international forum for doctoral students to discuss a range of topics that are current in computer science research. The workshop welcomes all research students in the field of computer science."
+}
+< 201
+
 Conference public metadata.
 GET /api/v1/conferences/{conference}
 < 200
