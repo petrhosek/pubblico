@@ -98,13 +98,13 @@ GET /api/v1/conferences/{conference}/submissions
     "lastUpdated": "2013-02-08T15:22:56.531Z",
     "tags": ["cryptography", "modality"],
     "bids": [{
-        "user": "user1",
+        "user": "nickng@doc.ic.ac.uk",
         "selection": "yes"
     },{
-        "user": "user2",
+        "email": "petrh@example.com",
         "selection": "no"
     },{
-        "user": "user33333",
+        "user": "florian@example.edu",
         "selection": "maybe"
     }]
 }]
@@ -136,12 +136,12 @@ GET /api/v1/conferences/{conference}/submissions/{submission}
     "lastUpdated": "2013-02-04T10:18:28.531Z",
     "tags": ["network", "agents"],
     "bids": [{
-        "user": "user1",
+        "user": "nickng@examp.le",
         "selection": "conflict"
     }],
     "reviews": [{
         "reviewer": {
-            "user": "user2"  
+            "email": "reviewer@example.edu",
         },
         "score": 0.8,
         "qualification": 0.6,
@@ -162,7 +162,7 @@ GET /api/v1/conferences/{conference}/submissions/{submission}
     }],
     "comments": [{
         "commenter": {
-            "user": "user2"
+            "email": "hello@world.com"
         },
         "comment": "I really like this paper!",
         "commented": "2013-02-06T10:18:28.531Z"
