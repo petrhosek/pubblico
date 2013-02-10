@@ -49,7 +49,7 @@ body{background:url("../../img/base-noise.jpeg") #f1f2f3;color:#333;font-family:
 #submission #submission-container{position:relative;min-height:420px;}
 #submission #submission-container #reviews-list{background:#fff;border-top:1px solid #dedede;display:block;font-size:1.15em;margin:0;margin-top:10px;padding:0;position:relative}
 #submission #submission-container #comments-list{background:#fff;border-top:1px solid #dedede;display:block;font-size:1.15em;margin:0;margin-top:10px;padding:0;position:relative}
-.avatar{margin-top:-6px;width:32px;height:32px;-webkit-border-radius:32px;border-radius:32px}
+.avatar{margin-top:-2px;width:32px;height:32px;-webkit-border-radius:32px;border-radius:32px}
 .review-timeline{padding:10px 30px}
 .review-list{border-top:1px solid #dedede;display:block;margin:0;margin-top:10px;padding:0;position:relative;}
 .review-list .review{padding:15px 10px;border-bottom:1px solid #e8eaed;}
@@ -64,24 +64,18 @@ body{background:url("../../img/base-noise.jpeg") #f1f2f3;color:#333;font-family:
 .comment-list .comment .comment-content .comment-date{font-weight:normal;font-size:12px;color:#888;position:absolute;top:0;right:0}
 .comment-list .comment p.meta{margin-top:5px;line-height:20px;font-size:12px;color:#666;font-weight:normal;}
 .comment-list .comment p.meta a{color:#444;font-weight:normal}
-#edit-conference-modal .content{height:460px;padding:30px 40px;width:500px;}
+#edit-conference-modal .content{padding:30px 40px;width:500px;}
 #edit-conference-modal .content h3{border-bottom:1px solid #ddd;margin-bottom:15px}
-#edit-conference-modal .content form input[type="text"]{padding:5px 10px;width:480px}
-#edit-conference-modal .content form input[type="date"]{padding:5px 10px}
-#edit-conference-modal .content form textarea{height:60px;padding:5px 10px;width:480px}
-#edit-conference-modal .dates .date{float:left;}
-#edit-conference-modal .dates .date:first-child{width:50%}
-#edit-conference-modal .controls{height:35px;padding:20px 0;}
-#edit-conference-modal .controls label{float:left;}
-#edit-conference-modal .controls label:first-child{width:50%}
+#edit-conference-modal .dates .control-group{display:inline-block;float:left;}
+#edit-conference-modal .privacy{height:35px;padding:20px 0;}
+#edit-conference-modal .privacy .control-group{float:left;}
+#edit-conference-modal .privacy .control-group:first-child{width:50%}
 #edit-conference-modal .actions{border-top:1px solid #ddd;padding:15px 5px;}
-#edit-conference-modal .actions input.btn{float:right;margin:5px 0 5px 10px}
-#edit-submission-modal .content{height:500px;padding:30px 40px;width:560px;}
+#edit-conference-modal .actions button{float:right}
+#edit-submission-modal .content{height:500px;padding:30px 40px;}
 #edit-submission-modal .content h3{border-bottom:1px solid #ddd;margin-bottom:15px}
-#edit-submission-modal .content .submission-content{margin-left:45px}
-#edit-submission-modal .content form input[type="text"]{padding:5px 10px;width:480px}
-#edit-submission-modal .content form input[type="date"]{padding:5px 10px}
-#edit-submission-modal .content form textarea{height:250px;padding:5px 10px;width:480px}
+#edit-submission-modal .content form{margin-left:45px;}
+#edit-submission-modal .content form #submission-abstract{height:250px}
 #edit-submission-modal .actions{border-top:1px solid #ddd;padding:15px 5px;}
 #edit-submission-modal .actions button{float:right}
 #edit-submission-modal .actions a{line-height:1.8}

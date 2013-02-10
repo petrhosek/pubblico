@@ -30,7 +30,6 @@ angular.module('pubblicoApp').controller('SearchCtrl', ['$scope', 'Conference',
 
 angular.module('pubblicoApp').controller('SidebarConferenceCtrl', ['$scope', 'Conference',
     function ($scope, Conference) {
-  var xxx = Conference.index();
   $scope.conferences = Conference.query();
 }]);
 
@@ -48,6 +47,14 @@ angular.module('pubblicoApp').controller('ConferenceDetailCtrl', ['$scope', '$ro
   $scope.$on('edit', function() {
     $scope.$broadcast('show', $scope.submission);
   });
+}]);
+
+angular.module('pubblicoApp').controller('ConferenceEditCtrl', ['$scope', '$routeParams', 'Conference',
+    function ($scope, $routeParams, Conference) {
+  $scope.conference = {};
+  $scope.submit = function() {
+    Conference.save($scope.conference);
+  }
 }]);
 
 angular.module('pubblicoApp').controller('SubmissionsListCtrl', ['$scope', 'Submission',
@@ -74,9 +81,10 @@ angular.module('pubblicoApp').controller('SubmissionsEditCtrl', ['$scope', '$loc
     $scope.submission = submission;
     $scope.modalShown = true;
   });
-  $scope.submission = Submission.get({conference: $routeParams.conference, submission: $routeParams.submission});
-  $scope.edit = function() {
-    $scope.submission.$save();
+  //$scope.submission = Submission.get({conference: $routeParams.conference, submission: $routeParams.submission});
+  $scope.submit = function() {
+    Submission.save($scope.submission);
+    //$scope.submission.$save();
   };
   $scope.close = function() {
     $scope.modalShown = false;
