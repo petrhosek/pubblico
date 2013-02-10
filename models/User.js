@@ -14,6 +14,14 @@ var UserSchema = new mongoose.Schema({
   , active: Boolean
 });
 
+
+UserSchema.virtual('name.full').get(function () {
+  if (!this.name.first && !this.name.last) return '';
+  if (!this.name.first) return this.name.last;
+  if (!this.name.last) return this.name.first;
+  return this.name.first + ' ' + this.name.last;
+});
+
 UserSchema.statics.register = function(doc, fn) {
   var salt = bcrypt.genSaltSync(10);
   doc.password = bcrypt.hashSync(doc.password, salt);
