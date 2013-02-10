@@ -17,28 +17,36 @@
   #conference-container
     ul#submission-list.unstyled
       li.submission(ng-repeat='submission in submissions')
+        .submission-number.pull-left
+          span &#35;{{submission.id}}
         .submission-content
           span.submission-date
             abbr.timeago(title='{{submission.submitted}}')
               {{submission.submitted | ago}}
-          a.submission-title(href='/conferences/{{conference.id}}/submissions/{{submission.id}}') {{submission.title}}
-          ul.submission-authors.unstyled
-            li.author(ng-repeat='author in submission.authors')
-              a(href='/user/{{author.email}}') {{author.name.first}} {{author.name.last}}
-              | 
-              span {{author.affiliation}}
+          h3.submission-title
+            a(href='/conferences/{{conference.id}}/submissions/{{submission.id}}') {{submission.title}}
+            span.tag.label.label-info(ng-repeat='tag in submission.tags') {{tag}}
+          p by 
+            strong(ng-repeat='author in submission.authors')
+              a(href='/user/{{author.email}}')
+                img.avatar(width=16, height=16, title='{{author.name.first}} {{author.name.last}}', ng-src='http://www.gravatar.com/avatar/{{author.email|md5}}?s=16')
+                | {{author.name.first}} {{author.name.last}}
+            time(datetime='{{submission.submitted}}')  {{submission.submitted | ago}}
+          //-ul.submission-authors.unstyled
+          //- li.author(ng-repeat='author in submission.authors')
+          //-    a(href='/user/{{author.email}}') {{author.name.first}} {{author.name.last}}
+          //-    | 
+          //-    span {{author.affiliation}}
           //-a.edit-submission(ng-click='edit(submission)', href='#edit-submission-modal', role='button', data-toggle='modal') Edit
-          button.btn.edit-submission(ng-click='edit(submission)', role='button', data-toggle='modal', modalx='edit-submission-modal') Edit
-          p.meta
+          //-button.btn.edit-submission(ng-click='edit(submission)', role='button', data-toggle='modal', modalx='edit-submission-modal') Edit
+          .meta
             span.review
               a(title='Review')
                 i.icon.icon-inbox
-                |  Add review
+                |  2 reviews
             |  · 
             span.comment
               a(title='Comment')
                 i.icon.icon-comment
-                |  Add comment
-          .tags
-            span.tag.label.label-info(ng-repeat='tag in submission.tags') {{tag}}
-        .submission-actions
+                |  2 comments
+          .submission-actions
