@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('pubblicoApp.filters', []).
+define(['app', 'moment', 'md5'], function(app, moment, md5) {
+  return app.
   filter('ago', ['nowTime', function (nowTime) {
     return function (value) {
       return moment(value).from(nowTime());
@@ -18,3 +19,4 @@ angular.module('pubblicoApp.filters', []).
       }
     }
   }]);
+});

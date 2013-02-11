@@ -64,20 +64,8 @@ block body
             #new-conference
               a.new-conference(href='#edit-conference-modal', role='button', data-toggle='modal') + New conference
         .span9.columns.content
-          .ng-view
+          .ng-view.ng-cloak
   include partials/editConference
   include partials/editSubmission
   //- In production use: script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js')
-  script(src='lib/angular/angular.js')
-  script(src='lib/angular/angular-bootstrap.js')
-  script(src='lib/angular/angular-resource.js')
-  script(src='lib/jquery/jquery-1.9.0.js')
-  script(src='lib/bootstrap/bootstrap.js')
-  script(src='lib/moment/moment.js')
-  script(src='lib/md5/md5.js')
-  script(src='js/app.js')
-  script(src='js/services/services.js')
-  script(src='js/controllers/controllers.js')
-  script(src='js/filters/filters.js')
-  script(src='js/directives/directives.js')
-  script(src='js/directives/modal.js')
+  script(data-main='js/main', src='lib/require/require.js')

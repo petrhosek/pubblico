@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('pubblicoApp.directives', []).
+define(['app'], function(app) {
+  app.
   directive('appVersion', ['version', function(version) {
     return function(scope, elm, attrs) {
       elm.text(version);
@@ -35,3 +36,5 @@ angular.module('pubblicoApp.directives', []).
       }
     };
   });
+  return app;
+});

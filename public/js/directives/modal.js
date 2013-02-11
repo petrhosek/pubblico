@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('ui.bootstrap', []).
+define(['app'], function(app) {
+  return app.
   constant('modalConfig', {
     backdrop: true,
     escape: true
@@ -78,3 +79,4 @@ angular.module('ui.bootstrap', []).
       }
     };
   }]);
+});

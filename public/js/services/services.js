@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('pubblicoApp.services', ['ngResource']).
+define(['app'], function(app) {
+  app.
   factory('User', ['$http', function($http) {
     return {
       attach: function(scope) {
@@ -39,11 +40,13 @@ angular.module('pubblicoApp.services', ['ngResource']).
     };
   }]);
 
-angular.module('pubblicoApp').
+  app.
   value('version', '0.1');
 
-/** Mock HTTP */
-angular.module('pubblicoApp.mock', ['ngMockE2E']).
+  return app;
+
+  /** Mock HTTP */
+  /*angular.module('pubblicoApp.mock', ['ngMockE2E']).
   run(['$httpBackend', function($httpBackend) {
     apiary.forEach(function(section){
       var resources = section.resources;
@@ -71,4 +74,5 @@ angular.module('pubblicoApp.mock', ['ngMockE2E']).
       });
     });
     $httpBackend.whenGET(/^\/partials\//).passThrough();
-  }]);
+  }]);*/
+});
