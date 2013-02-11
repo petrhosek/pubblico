@@ -21,7 +21,7 @@ html
   body.home
     for msg in error
       .alert.alert-error
-        button.close(type='button', data-dismiss='alert') &times;
+        a.close(href='#', data-dismiss='alert') &times;
         strong= msg
     nav.navbar.navbar-static-top
       .navbar-inner
@@ -61,8 +61,6 @@ html
                 a(href='/conferences/') Conferences
               li
                 a(href='/about/') About us
-    article.container
-      #landing
     .container
       .jumbotron
         include partials/signup
