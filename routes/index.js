@@ -40,6 +40,7 @@ exports.passport = function (req, res) {
  */
 exports.logout = function (req, res) {
   req.logout();
+  req.flash('info', 'You have been successfully logged out!');
   res.redirect('/home');
 };
 
@@ -48,7 +49,18 @@ exports.logout = function (req, res) {
  */
 exports.signup = function (req, res) {
   User.register(req.body, function(err, user) {
-    if (err) console.log(err);
-    res.redirect('/');
+    if (err) {
+      console.log(err);
+      req.flash('error', err.err);
+      return res.redirect('/home');
+    }
+    req.login(user, function(err) {
+      if (err) {
+        console.log(err);
+        req.flash('error', err.err);
+        return res.redirect('/home');
+      }
+      res.redirect('/');
+    });
   });
 };
