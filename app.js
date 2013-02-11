@@ -103,6 +103,8 @@ app.post('/login', passport.authenticate('local', { successRedirect: '/',
  * JSON API
  */
 
+app.get('/api/v1/users/:uid', api.user);
+
 app.get('/api/v1/conferences', api.conferences);
 app.get('/api/v1/conferences/:conference', api.conference);
 app.get('/api/v1/conferences/:conference/submissions', api.submissions_all);

@@ -5,6 +5,26 @@ var Conference = require('../models/Conference.js');
 
 
 /*
+ * GET /api/v1/users/:uid
+ */
+exports.user = (function (req, res) {
+    User.findById(req.params.uid, function (err, user) {
+        if (err) {
+            console.log(err);
+            res.send(500, {error:'Unable to load user'});
+        } else {
+            if (user !== null) {
+                console.log(user);
+                res.json(user);
+            } else {
+                console.log(err);
+                res.send(404, {error:'No matching user'});
+            }
+        }
+    });
+});
+
+/*
  * GET /api/v1/conferences
  */
 exports.conferences = (function (req, res) {
