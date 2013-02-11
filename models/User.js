@@ -21,6 +21,12 @@ UserSchema.virtual('name.full').get(function () {
   return this.name.first + ' ' + this.name.last;
 });
 
+UserSchema.virtual('name.full').set(function (name) {
+  var split = name.split(' ');
+  this.name.first = split[0];
+  this.name.last = split[1];
+});
+
 UserSchema.statics.register = function(doc, fn) {
   var salt = bcrypt.genSaltSync(10);
   doc.password = bcrypt.hashSync(doc.password, salt);
