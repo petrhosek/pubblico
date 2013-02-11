@@ -1,7 +1,8 @@
-form.home-signup.pull-right(action='/signup', method='POST', autocomplete='off')
+form.home-signup.pull-right(action='/signup', method='POST')
   fieldset
+    input#id_first(type='text', name='name.full', maxlength='30', placeholder='First and last name')
     input#id_email(type='text', name='email', maxlength='30', placeholder='Your email')
-    input#id_affiliation(type='text', name='affiliation', maxlength='30', placeholder='Provide affiliation')
+    input#id_affiliation(type='text', name='affiliation', maxlength='30', placeholder='Your affiliation')
     input#id_password(type='password', name='password', placeholder='Create a password')
     span.help-block Use at least one number and at least 7 characters.
     p.signup-agreement
