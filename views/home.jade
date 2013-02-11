@@ -23,6 +23,10 @@ html
       .alert.alert-error
         a.close(href='#', data-dismiss='alert') &times;
         strong= msg
+    for msg in info
+      .alert.alert-success
+        a.close(href='#', data-dismiss='alert') &times;
+        strong= msg
     nav.navbar.navbar-static-top
       .navbar-inner
         .container
