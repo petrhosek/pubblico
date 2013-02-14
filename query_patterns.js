@@ -89,34 +89,49 @@ var data = {                                              // data from api
   uids: []
 };
 var list_all_submissions = function(data){                // query function
-  // TODO
+  // TODO - not optimal, iterate twice through submissions
   //console.log('bla1');
 
   Conference.findOne({shortName: data.conf}, 'submissions', function(err, doc){
+    data.uids = [];                                       // push all user ids here
+    data.all_conf = doc;
     for(var s = 0; s < doc.submissions.length; s++){
-      // doc.submissions[s] - each submission
       for(var a = 0; a < doc.submissions[s].authors.length; a++){
-        data.sub = doc.submissions[s];
         var uid = doc.submissions[s].authors[a];
-        return get_details(uid, data);
+        if(data.uids.indexOf(uid) < 0){
+          data.uids.push(uid);
+        }
       }
     }
+    return get_details(data);
   });
 }
-var get_details = function(uid, data){                    // aux function
-  console.log(uid);
-  console.log(data.sub);
-  User.findOne({_id:uid}, 'name', function(err, doc){
-    data.sub = []
-    data.sub.push({
-      name: {
-        first: doc.name.first,
-        last : doc.name.last
+var get_details = function(data){                         // aux function
+  var items   = data.uids                                 // series design pattern
+  var results = {}
+  function populate_users(){                              // final function in dp
+    //console.log('Done', results);
+    for(var s = 0; s < data.all_conf.submissions.length; s++){
+      for(var a = 0; a < data.all_conf.submissions[s].authors.length; a++){
+        var uid = data.all_conf.submissions[s].authors[a];
+        data.all_conf.submissions[s].authors[a] = results[uid];
       }
-    })
-    console.log(data);
-    console.log(data.sub[0]);
-  });
-
+    }
+    console.log("Ta-daaa:\n %j",data.all_conf);           // return point
+  }
+  function series(item) {                                 // iterator function
+    if(item) {
+      User.findOne({_id:item}, 'name', function(err, doc) {
+        if(err){ console.log(err)
+        } else{
+          results[item] = {name:doc.name};
+          return series(items.shift());
+        }
+      });
+    } else {
+      return populate_users(results);
+    }
+  }
+  series(items.shift());
 }
 list_all_submissions(data);                               // test
