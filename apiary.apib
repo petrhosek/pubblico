@@ -348,3 +348,22 @@ GET /api/v1/events
     },
     "createdat": "2013-02-10T17:00:00.000Z"
 }]
+
+--
+Markdown
+--
+Render an arbitrary Markdown document
+POST /api/v1/markdown
+{
+  "text": "Hello world/linguist#1 **cool**, and #1!",
+  "mode": "gfm",
+  "context": "iccs13"
+}
+< 201
+< Content-Type: text/html
+
+Render a Markdown document in raw mode
+POST /api/v1/markdown/raw
+"Hello world/linguist#1 **cool**, and #1!"
+< 201
+< Content-Type: text/html
