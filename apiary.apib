@@ -355,15 +355,17 @@ Markdown
 Render an arbitrary Markdown document
 POST /api/v1/markdown
 {
-  "text": "Hello world/linguist#1 **cool**, and #1!",
+  "text": "Hello world iccsw12#1 **cool**, and #1!",
   "mode": "gfm",
-  "context": "iccs13"
+  "context": "iccs11"
 }
 < 200
 < Content-Type: text/html
+<p>Hello world <a href="http://pubbli.co.uk/iccsw12/submissions/1" class="submission-link">iccsw12#1</a> <strong>cool</strong>, and <a href="http://pubbli.co.uk/iccsw11/submissions/1" class="submission-link">#1</a>!</p>
 
 Render a Markdown document in raw mode
 POST /api/v1/markdown/raw
-Hello world/linguist#1 **cool**, and #1!
+Hello world iccsw12#1 **cool**, and #1!
 < 200
 < Content-Type: text/html
+<p>Hello world iccsw12#1 <strong>cool</strong>, and #1!</p>
