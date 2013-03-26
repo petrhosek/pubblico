@@ -1,0 +1,17 @@
+extends home-layout
+
+block content
+  .account-form
+    h2 Sign up for a free account
+    form#signup.clearfix(action='/signup', method='POST', autocomplete='off')
+      .controls
+        input(type='text', name='username', maxlength='30', placeholder='Pick a username')
+      .controls
+        input(type='text', name='email', maxlength='75', placeholder='Your email')
+      .controls
+        input(type='password', name='password', placeholder='Create a password')
+      .actions
+        button.btn.btn-primary(type='submit') Sign up
+  p.note
+    | Already have an account? 
+    a(href='/login/') Log in

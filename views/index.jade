@@ -1,6 +1,9 @@
 extends layout
 
 block body
+  //if lt IE 9
+    script(src='lib/es5-shim.min.js')
+    script(src='lib/json3.min.js')
   header.topbar
     .container
       h3.brand

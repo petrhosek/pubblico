@@ -49,18 +49,22 @@ app.configure(function() {
 });
 
 app.configure('development', function() {
-  mongoose.connect('mongodb://'+host+'/'+manifest.name+'-dev');
+  app.set('connectionstring', 'mongodb://'+host+'/'+manifest.name+'-dev');
   app.use(express.errorHandler({
     dumpExceptions: true,
     showStack: true
   }));
+  app.use(express.logger({ format: '\x1b[1m:method\x1b[0m \x1b[33m:url\x1b[0m :response-time ms' }));
 });
 
 app.configure('production', function() {
-  mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://'+host+'/'+manifest.name);
+  app.set('connectionstring', process.env.MONGOHQ_URL || 'mongodb://'+host+'/'+manifest.name);
   app.use(express.errorHandler())
 });
 
+mongoose.connect(app.get('connectionstring'), function(err) {
+  if (err) console.log(err);
+});
 
 passport.use(new LocalStrategy({
     usernameField: 'email',
@@ -92,9 +96,12 @@ app.get('/', routes.index);
 app.get('/home', routes.home);
 app.get('/partials/:name', routes.partials);
 app.get('/passport', routes.passport);
+
+app.get('/signup', routes.signup);
+app.get('/login', routes.login);
 app.get('/logout', routes.logout);
 
-app.post('/signup', routes.signup);
+app.post('/signup', routes.signupNew);
 app.post('/login', passport.authenticate('local', { successRedirect: '/',
                                                     failureRedirect: '/home',
                                                     failureFlash: true }));

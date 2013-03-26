@@ -3,11 +3,11 @@ var User = require('../models/User');
 /*
  * GET /
  */
-exports.index = function (req, res) {
+exports.index = function(req, res) {
   res.render('index');
 };
 
-exports.home = function (req, res) {
+exports.home = function(req, res) {
   var messages = { error: req.flash('error'), warning: req.flash('warning'), info: req.flash('info') };
   res.render('home', messages);
 };
@@ -15,7 +15,7 @@ exports.home = function (req, res) {
 /*
  * GET /partials/:name
  */
-exports.partials = function (req, res) {
+exports.partials = function(req, res) {
   var name = req.params.name;
   res.render('partials/' + name);
 };
@@ -23,7 +23,7 @@ exports.partials = function (req, res) {
 /*
  * GET /directives/:name
  */
-exports.directives = function (req, res) {
+exports.directives = function(req, res) {
   var name = req.params.name;
   res.render('directives/' + name);
 };
@@ -31,14 +31,28 @@ exports.directives = function (req, res) {
 /*
  * GET /passport
  */
-exports.passport = function (req, res) {
+exports.passport = function(req, res) {
   res.json(req.session.passport);
 };
 
 /*
+ * GET /signup
+ */
+exports.signup = function(req, res) {
+  res.render('signup');
+}
+
+/*
+ * GET /login
+ */
+exports.login = function(req, res) {
+  res.render('login');
+}
+
+/*
  * GET /logout
  */
-exports.logout = function (req, res) {
+exports.logout = function(req, res) {
   req.logout();
   req.flash('info', 'You have been successfully logged out!');
   res.redirect('/home');
@@ -47,7 +61,7 @@ exports.logout = function (req, res) {
 /*
  * POST /signup
  */
-exports.signup = function (req, res) {
+exports.signupNew = function(req, res) {
   User.register(req.body, function(err, user) {
     if (err) {
       console.log(err);
